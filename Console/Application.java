@@ -5,7 +5,7 @@ class Application
 {
 	public static Scanner sc = new Scanner(System.in) ; 
 	public static Utility ut = new Utility() ; 
-	public static Console cn = new System.console() ; 
+	public static Console cn = System.console() ; 
 	public static void main(String[] args) throws IOException
 	{
 		if(cn == null)
@@ -50,7 +50,12 @@ class Application
 			else
 			{
 				System.exit(0) ; 
+				return true ; 
 			} 
+		}
+		else
+		{
+			return false ; 
 		}
 	}
 	/* boolean will tell whether we went back or forward. */ 
@@ -70,14 +75,17 @@ class Application
 		if(option == 1)
 		{
 			/* Display passses information. */ 
+			return true ; 
 		}
 		else if (option == 2)
 		{
 			/* Display T-shirts information. */ 
+			return true ; 
 		}
 		else if (option == 3)
 		{
 			/* Display events information. */ 
+			return true ; 
 		}
 		else if (option == 4)
 		{
@@ -91,6 +99,7 @@ class Application
 		else 
 		{
 			System.out.println("Sorry ! Wrong option selected.") ; 
+			return false  ; 
 		}
 	}
 }
