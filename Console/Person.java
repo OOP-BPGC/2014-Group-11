@@ -4,13 +4,13 @@ class Person
 	private String fName ; 
 	private String lName ; 
 	private String hostel ; 
-	private String type ; /* Can be normal, hr or controls */ 
-	public Person(String fn, String ln, String host, String ty)
+	private String id ; 
+	private String password ; 
+	public Person(String id, String fn, String ln, String host)
 	{
 		fName = fn ; 
 		lName = ln ; 
 		hostel = host ; 
-		type = ty ;
 	}
 	public void setFName(String fn)
 	{
@@ -23,10 +23,6 @@ class Person
 	public void setHostel(String host)
 	{
 		hostel = host ; 
-	}
-	public void setType(String ty)
-	{
-		type = ty ; 
 	}
 	public String getFName()
 	{
@@ -44,4 +40,22 @@ class Person
 	{
 		return type ; 
 	}
+	public ArrayList<TShirt> getTShirts()
+	{
+		/* Query DataBase. */
+	}
+	public ArrayList<Passes> getPasses()
+	{
+		/* Query */ 
+	}
+	public void poll(Event event, int choice) 
+	{
+		; 
+	} 
+	public ArrayList<Pair> getPerformance()
+	{
+		/* We can use HashMaps also. */ 
+	}	
+	// TODO: - Write interfaces for TShirts and Passes. 
+	
 }

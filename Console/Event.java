@@ -1,16 +1,11 @@
 import java.util.* ; 
-class Event
+abstract class Event
 {
-	private ArrayList<Pair> participants = new ArrayList<Pair> () ; 
 	private String venue; 	
 	private int year ; 
 	private int month ; 
 	private int date ; 
-	public ArrayList<Pair> getParticipants()
-	{
-		Collections.sort(participants, new CustomComparator()) ; 
-		return participants ; 
-	}
+	abstract ArrayList<Person> getPeople() ;
 	public int getYear()
 	{
 		return year ; 

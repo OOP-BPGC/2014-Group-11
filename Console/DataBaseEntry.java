@@ -1,0 +1,4 @@
+interface DataBaseEntry
+{
+	void putToDataBase() ; 	
+}
