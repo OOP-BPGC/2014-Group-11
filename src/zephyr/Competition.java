@@ -1,5 +1,5 @@
 import java.util.* ; 
-class Competition extends Event  
+class Competition extends Event
 {
 	private ArrayList<Pair> participants = new ArrayList<Pair> () ; 
 	private String venue; 	
