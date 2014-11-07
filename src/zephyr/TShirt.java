@@ -1,5 +1,7 @@
-			/* TShirt class for representing the TShirt object. */ 
-class TShirt implements DataBaseEntry 
+package zephyr;
+
+/* TShirt class for representing the TShirt object. */ 
+public class TShirt implements DatabaseEntry 
 {
 	private String name ; 
 	private int id; 

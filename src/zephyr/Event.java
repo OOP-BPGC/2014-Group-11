@@ -1,12 +1,13 @@
 package zephyr;
 
-import java.util.* ; 
-abstract class Event
+import java.util.* ;
+
+public abstract class Event
 {
-	private String venue; 	
-	private int year ; 
-	private int month ; 
-	private int date ;
+	protected String venue; 	
+	protected int year ; 
+	protected int month ; 
+	protected int date ;
     
 	abstract ArrayList<Person> getPeople();
     

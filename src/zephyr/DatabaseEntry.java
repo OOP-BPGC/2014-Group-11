@@ -1,6 +1,6 @@
 package zephyr;
 
-public interface DataBaseEntry
+public interface DatabaseEntry
 {
 	void putToDatabase() ; 	
 }

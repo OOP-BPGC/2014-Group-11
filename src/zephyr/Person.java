@@ -1,11 +1,16 @@
-import java.util.* ; 
-class Person
+package zephyr;
+
+import java.util.* ;
+import zephyr.util.*;
+
+public class Person
 {
 	private String fName ; 
 	private String lName ; 
 	private String hostel ; 
 	private String id ; 
-	private String password ; 
+	private String password ;
+    
 	public Person(String id, String fn, String ln, String host)
 	{
 		fName = fn ; 
@@ -36,10 +41,7 @@ class Person
 	{
 		return hostel ; 
 	}
-	public String getType()
-	{
-		return type ; 
-	}
+
 	public ArrayList<TShirt> getTShirts()
 	{
 		/* Query DataBase. */
