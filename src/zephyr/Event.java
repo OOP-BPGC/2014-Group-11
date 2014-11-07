@@ -9,7 +9,7 @@ public abstract class Event
 	protected int month ; 
 	protected int date ;
     
-	abstract ArrayList<Person> getPeople();
+	abstract ArrayList<Student> getStudent();
     
 	public int getYear()
 	{

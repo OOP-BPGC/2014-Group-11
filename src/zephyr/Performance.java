@@ -8,7 +8,7 @@ public class Performance implements Event
 	private int year ; 
 	private int month ; 
 	private int date ; 
-	public ArrayList<Person> getPeople()
+	public ArrayList<Student> getStudent()
 	{
 		/* Implement it. */ 
 	}

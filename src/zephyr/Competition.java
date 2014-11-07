@@ -7,7 +7,7 @@ public class Competition extends Event
 {
     private ArrayList<Pair> participants = new ArrayList<Pair> () ; 
     
-    public ArrayList<Pair> getPeople()
+    public ArrayList<Pair> getStudents()
     {
         Collections.sort(participants, new CustomComparator()) ; 
         return participants ; 

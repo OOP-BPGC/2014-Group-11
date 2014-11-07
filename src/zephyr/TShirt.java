@@ -9,7 +9,8 @@ public class TShirt implements DatabaseEntry
 	int ql ; 
 	int qm ; 
 	int qxl  ;
-	int qxxl ; 
+	int qxxl ;
+    
 	public TShirt(String n, int s, int m, int l, int xl, int xxl) 
 	{
 		// ; 
