@@ -8,7 +8,7 @@ only stub codes are present as of now. Stub refinements and actual codes will be
 ## Architecture
 The application is designed with MVC(Model View Controller) architecture in mind. The idea is to separate out the logic and state of application (model), handlers  (controller) and UI (view). This allows the model to exist independently so that the application doesn't become platform dependent. As a result the same model can be used for GUI, Web App, Mobile App etc. The controller and view will change correspondingly. Since we are making a Web Application - the controller will be Servlets and the view will be JSP.
 
-## Directory Structure for Development Environment
+### Directory Structure for Development Environment
 src - java source files
 
 ---- zephyr - model of the application
