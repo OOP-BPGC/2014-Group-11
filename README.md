@@ -15,7 +15,7 @@ src - java source files
 
 ---- console - controller java files for console related operations for Zephyr Controls
 
----- web - controller servelt files for the webapp
+---- web - controller servlet files for the webapp
 
 lib - contains all third party libraries
 
