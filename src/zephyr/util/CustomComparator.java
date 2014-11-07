@@ -1,5 +1,8 @@
-import java.util.* ; 
-class CustomComparator implements Comparator<Pair> 
+package zephyr.util;
+
+import java.util.* ;
+
+public class CustomComparator implements Comparator<Pair> 
 {
 	@Override 
 	public int compare(Pair p1, Pair p2)

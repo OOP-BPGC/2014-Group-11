@@ -1,4 +1,8 @@
-class Pair
+package zephyr.util;
+
+import zephyr.*;
+
+public class Pair
 {
 	Person p ; 
 	int rank ; 
