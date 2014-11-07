@@ -1,13 +1,17 @@
 		/* Main application class which launches the console application.*/ 
 import java.util.* ; 
 import java.io.* ; 
+import java.sql.*; 
 class Application
 {
 	public static Scanner sc = new Scanner(System.in) ; 
 	public static Utility ut = new Utility() ; 
 	public static Console cn = System.console() ; 
-	public static void main(String[] args) throws IOException
+	public static Connection c = null ; 
+	public static Statement stmt = null ; 
+	public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException
 	{
+	      	Class.forName("org.sqlite.JDBC");
 		boolean exit = false ; 
 		if(cn == null)
 		{
@@ -33,7 +37,7 @@ class Application
 		}
 		System.out.println("Thank you for using our program.") ; 
 	}
-	public static boolean loginPage()
+	public static boolean loginPage() throws SQLException 
 	{
 		System.out.println("\u001b[2J\u001b[H") ; 
 		System.out.println("Please enter the login details") ; 
@@ -58,7 +62,7 @@ class Application
 		}
 	}
 	/* boolean will tell whether we went back or forward. */ 
-	public static boolean mainPage()
+	public static boolean mainPage() throws SQLException 
 	{
 			
 		System.out.print("Login correct !\nPress any key to continue  ") ; 
@@ -79,6 +83,7 @@ class Application
 		else if (option == 2)
 		{
 			/* Display T-shirts information. */ 
+			tShirtPage() ;
 			return false ; 
 		}
 		else if (option == 3)
@@ -101,4 +106,44 @@ class Application
 			return false  ; 
 		}
 	}
+	public static boolean tShirtPage() throws SQLException 
+	{
+      		c = DriverManager.getConnection("jdbc:sqlite:tshirt");
+		stmt = c.createStatement() ; 
+		boolean correct = false ; 
+		int opt ; 
+		while(correct == false)
+		{
+			System.out.println("1) View details ") ; 
+			System.out.println("2) Add a new T-shirt") ; 
+			System.out.print("Please select the required option: ") ; 
+			opt = sc.nextInt() ; 	
+			if(opt == 1)
+			{
+				
+				System.out.println("List of T-Shirts: ") ; 
+				ut.listTShirts() ; 	
+				correct = true ; 
+			}
+			else if(opt == 2)
+			{
+				; // Do nothing. 
+				correct = true ; 
+			}
+			else
+			{
+				System.out.println("\u001b[2J\u001b[H") ; 
+				System.out.println("Wrong option selected !")  ;	
+				correct = false ; 
+			}
+		}
+		/* Read from Database and Display number. */ 
+		/* Select the T-shirt of which you want to display statistics. */ 
+		stmt.close() ; 
+		c.close() ; 
+		System.out.print("Press any key to continue") ; 
+		sc.next() ; 
+		return true ; 
+	}
+		
 }
