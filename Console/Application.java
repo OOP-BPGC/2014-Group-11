@@ -8,33 +8,34 @@ class Application
 	public static Console cn = System.console() ; 
 	public static void main(String[] args) throws IOException
 	{
+		boolean exit = false ; 
 		if(cn == null)
 		{
 			System.out.println("Couldn't get terminal... Aborting") ; 
 			System.exit(0) ; 
 		}
 		System.out.println("Welcome to our database editor.") ; 	
-		System.out.println("Please enter the login details") ; 
-		System.out.print("Username: ") ;
-		String username = cn.readLine() ;	
-		System.out.print("Password: ") ; 
-		char[] passwordChars = cn.readPassword() ; 
-		String password = new String(passwordChars) ; 
-		if(ut.loginCorrect(username, password) == true)
+		while(exit == false)
 		{
-			if(mainPage() == false) 
+			System.out.println("\u001b[2J\u001b[H") ; 
+			System.out.println("1) Login") ; 
+			System.out.println("2) Exit") ; 
+			System.out.println("Please choose the required option: ") ; 
+			int opt = sc.nextInt() ; 
+			if(opt == 1)	
 			{
-				loginPage() ; 
+				exit = loginPage() ; // Not complete yet. 			
 			}
 			else
 			{
-				System.exit(0) ; 
-			} 
+				exit = true ; 
+			}
 		}
+		System.out.println("Thank you for using our program.") ; 
 	}
 	public static boolean loginPage()
 	{
-		
+		System.out.println("\u001b[2J\u001b[H") ; 
 		System.out.println("Please enter the login details") ; 
 		System.out.print("Username: ") ;
 		String username = cn.readLine() ;	
@@ -43,18 +44,16 @@ class Application
 		String password = new String(passwordChars) ; 
 		if(ut.loginCorrect(username, password) == true)
 		{
-			if(mainPage() == false) 
+			boolean back = true ; 
+			while(back == true )
 			{
-				return false ; 
+				back = mainPage() ; 
 			}
-			else
-			{
-				System.exit(0) ; 
-				return true ; 
-			} 
+			return back ; 
 		}
 		else
 		{
+			System.out.println("Login details incorrect !") ; 
 			return false ; 
 		}
 	}
@@ -70,22 +69,22 @@ class Application
 		System.out.println("2) T-shirts") ; 
 		System.out.println("3) Events") ; 
 		System.out.println("4) Back") ; 
-		System.out.println("Please enter the correct option number: ")  ;
+		System.out.print("Please enter the correct option number: ")  ;
 		int option = sc.nextInt() ; 
 		if(option == 1)
 		{
 			/* Display passses information. */ 
-			return true ; 
+			return false ; 
 		}
 		else if (option == 2)
 		{
 			/* Display T-shirts information. */ 
-			return true ; 
+			return false ; 
 		}
 		else if (option == 3)
 		{
 			/* Display events information. */ 
-			return true ; 
+			return false ; 
 		}
 		else if (option == 4)
 		{
