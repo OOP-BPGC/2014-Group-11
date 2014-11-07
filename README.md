@@ -10,8 +10,11 @@ The application is designed with MVC(Model View Controller) architecture in mind
 
 ## Directory Structure for Development Environment
 src - java source files
+
 ---- zephyr - model of the application
+
 ---- console - controller java files for console related operations for Zephyr Controls
+
 ---- web - controller servelt files for the webapp
 
 lib - contains all third party libraries
