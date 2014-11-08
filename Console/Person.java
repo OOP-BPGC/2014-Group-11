@@ -1,16 +1,22 @@
 import java.util.* ; 
+import java.sql.* ;
 class Person
 {
 	private String fName ; 
 	private String lName ; 
 	private String hostel ; 
-	private String id ; 
+	private int  id ; 
 	private String password ; 
-	public Person(String id, String fn, String ln, String host)
+	public Person(int i, String fn, String ln, String host)
 	{
+		id = i ; 
 		fName = fn ; 
 		lName = ln ; 
 		hostel = host ; 
+	}
+	public void setPassword(String pass)
+	{
+		password = pass ; 
 	}
 	public void setFName(String fn)
 	{
@@ -24,6 +30,10 @@ class Person
 	{
 		hostel = host ; 
 	}
+	public String getPassword()
+	{
+		return password ; 
+	}
 	public String getFName()
 	{
 		return fName ; 
@@ -36,26 +46,40 @@ class Person
 	{
 		return hostel ; 
 	}
-	public String getType()
+	//public ArrayList<TShirt> getTShirts()
+	//{
+	//	/* Query DataBase. */
+	//}
+	//public ArrayList<Pass> getPasses()
+	//{Spelling of mentees
+	//	/* Query */ 
+	//}
+	//public void castoll(Event event, int choice) 
+	//{
+	//	; 
+	//}
+	//public ArrayList<Pair> getPerformance()
+	//{
+	//	/* We can use HashMaps also. */ 
+	//}	
+	/* Writes itself to the database. */ 
+	public ArrayList<Competition> getCompetitions(Statement stmt) throws SQLException 
 	{
-		return type ; 
+		String sql = "SELECT * FROM Competition WHERE id=" + id ; 
+		ResultSet rs = stmt.executeQuery(sql) ; 
+		ArrayList<Competition> list = new ArrayList<Competition>() ; 
+		while(rs.next() == true)
+		{
+			list.add(new Competition(rs.getString("name"), rs.getString("venue"), rs.getInt("year"), rs.getInt("month"), rs.getInt("date"), id, rs.getInt("rank"))) ;
+		}
+		return list ; 
+	} 	
+	public void writeToDataBase(Statement stmt) throws SQLException 
+	{
+		String sql = "INSERT INTO Person (fname, lname, hostel, id, password, type) VALUES ('" + fName + "','" +lName + "','"+hostel + "',"+id+",'"+password+"',"+0 + ");" ;
+		stmt.executeUpdate(sql) ; 
+		;	
 	}
-	public ArrayList<TShirt> getTShirts()
-	{
-		/* Query DataBase. */
-	}
-	public ArrayList<Passes> getPasses()
-	{
-		/* Query */ 
-	}
-	public void poll(Event event, int choice) 
-	{
-		; 
-	} 
-	public ArrayList<Pair> getPerformance()
-	{
-		/* We can use HashMaps also. */ 
-	}	
 	// TODO: - Write interfaces for TShirts and Passes. 
 	
 }

@@ -5,7 +5,8 @@ abstract class Event
 	private int year ; 
 	private int month ; 
 	private int date ; 
-	abstract ArrayList<Person> getPeople() ;
+	private String name ; 
+	//abstract ArrayList<Person> getPeople() ;
 	public int getYear()
 	{
 		return year ; 
@@ -30,4 +31,5 @@ abstract class Event
 	{
 		date = da ; 
 	}
+		
 }

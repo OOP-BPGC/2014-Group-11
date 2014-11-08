@@ -1,4 +1,4 @@
-		/* Main application class which launches the console application.*/ 
+/* Main application class which launches the console application.*/ 
 import java.util.* ; 
 import java.io.* ; 
 import java.sql.*; 
@@ -11,139 +11,84 @@ class Application
 	public static Statement stmt = null ; 
 	public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException
 	{
-	      	Class.forName("org.sqlite.JDBC");
-		boolean exit = false ; 
+
+		Class.forName("org.sqlite.JDBC");
+		c = DriverManager.getConnection("jdbc:sqlite:common");
+		stmt = c.createStatement() ; 
+		int stateVar = 1 ; 
+		int opt = 0 ; 
 		if(cn == null)
 		{
 			System.out.println("Couldn't get terminal... Aborting") ; 
 			System.exit(0) ; 
 		}
 		System.out.println("Welcome to our database editor.") ; 	
-		while(exit == false)
+		while(true)
 		{
-			System.out.println("\u001b[2J\u001b[H") ; 
-			System.out.println("1) Login") ; 
-			System.out.println("2) Exit") ; 
-			System.out.println("Please choose the required option: ") ; 
-			int opt = sc.nextInt() ; 
-			if(opt == 1)	
+			/* Stage 1 of logging in. */ 
+			if(stateVar == 1)
 			{
-				exit = loginPage() ; // Not complete yet. 			
+				try
+				{
+					System.out.println("\u001b[2J\u001b[H") ; 
+					System.out.println("Please choose the required option:-\n1)Login\n2)Exit") ; 
+					opt = sc.nextInt() ; 
+					if(opt == 1)
+					{
+						System.out.print("Username: ") ; 
+						int username = sc.nextInt() ;
+						System.out.print("Password: ") ;  
+						String password = new String(cn.readPassword()) ;  
+						if(ut.loginCorrect(username, password, stmt) == true)
+						{
+							stateVar = 2 ; 
+							System.out.println("You have succesfully logged in.") ; 
+						}
+					}
+					else
+					{
+						System.out.println("Thank you for using our program.") ; 
+						System.exit(0) ; 
+					}
+				}
+				catch(InputMismatchException ex)
+				{
+					System.out.println("Exception : " + ex.getMessage()) ; 
+					sc.nextLine() ;  // To clear the buffer. 
+					sc.nextLine() ; 
+					stateVar = 1 ; 
+					continue ; 
+				}
 			}
-			else
+			else if(stateVar == 2)
 			{
-				exit = true ; 
+				try
+				{
+					System.out.println("\u001b[2J\u001b[H") ; 	
+					System.out.println("Please choose the required option:- \n1)T-Sirts\n2)Passes\n3)Participants\n4)Performances\n5)Competitions\n6)Back") ; 
+					opt =  sc.nextInt() ; 
+					if(opt == 3)
+					{
+						ut.listAllParticipants() ; 
+						sc.nextLine() ; 
+						sc.nextLine() ; 
+					}
+					else if (opt == 6)
+					{
+						stateVar = 1 ; 
+						continue ; 
+					}
+				}
+				catch(InputMismatchException ex)
+				{
+					stateVar = 2 ; 
+					sc.nextLine() ; 
+					sc.nextLine() ; 
+					continue ; 
+				}
 			}
-		}
-		System.out.println("Thank you for using our program.") ; 
-	}
-	public static boolean loginPage() throws SQLException 
-	{
-		System.out.println("\u001b[2J\u001b[H") ; 
-		System.out.println("Please enter the login details") ; 
-		System.out.print("Username: ") ;
-		String username = cn.readLine() ;	
-		System.out.print("Password: ") ; 
-		char[] passwordChars = cn.readPassword() ; 
-		String password = new String(passwordChars) ; 
-		if(ut.loginCorrect(username, password) == true)
-		{
-			boolean back = true ; 
-			while(back == true )
-			{
-				back = mainPage() ; 
-			}
-			return back ; 
-		}
-		else
-		{
-			System.out.println("Login details incorrect !") ; 
-			return false ; 
-		}
-	}
-	/* boolean will tell whether we went back or forward. */ 
-	public static boolean mainPage() throws SQLException 
-	{
-			
-		System.out.print("Login correct !\nPress any key to continue  ") ; 
-		cn.readLine() ; 
-		System.out.println("\u001b[2J\u001b[H") ; 
-		System.out.flush() ; 
-		System.out.println("1) Passes") ; 
-		System.out.println("2) T-shirts") ; 
-		System.out.println("3) Events") ; 
-		System.out.println("4) Back") ; 
-		System.out.print("Please enter the correct option number: ")  ;
-		int option = sc.nextInt() ; 
-		if(option == 1)
-		{
-			/* Display passses information. */ 
-			return false ; 
-		}
-		else if (option == 2)
-		{
-			/* Display T-shirts information. */ 
-			tShirtPage() ;
-			return false ; 
-		}
-		else if (option == 3)
-		{
-			/* Display events information. */ 
-			return false ; 
-		}
-		else if (option == 4)
-		{
-			/* Go back   */ 
-			return false ; 
-		}
-		else if (option == 5)
-		{
-			return true ; 
-		}
-		else 
-		{
-			System.out.println("Sorry ! Wrong option selected.") ; 
-			return false  ; 
+					
 		}
 	}
-	public static boolean tShirtPage() throws SQLException 
-	{
-      		c = DriverManager.getConnection("jdbc:sqlite:tshirt");
-		stmt = c.createStatement() ; 
-		boolean correct = false ; 
-		int opt ; 
-		while(correct == false)
-		{
-			System.out.println("1) View details ") ; 
-			System.out.println("2) Add a new T-shirt") ; 
-			System.out.print("Please select the required option: ") ; 
-			opt = sc.nextInt() ; 	
-			if(opt == 1)
-			{
-				
-				System.out.println("List of T-Shirts: ") ; 
-				ut.listTShirts() ; 	
-				correct = true ; 
-			}
-			else if(opt == 2)
-			{
-				; // Do nothing. 
-				correct = true ; 
-			}
-			else
-			{
-				System.out.println("\u001b[2J\u001b[H") ; 
-				System.out.println("Wrong option selected !")  ;	
-				correct = false ; 
-			}
-		}
-		/* Read from Database and Display number. */ 
-		/* Select the T-shirt of which you want to display statistics. */ 
-		stmt.close() ; 
-		c.close() ; 
-		System.out.print("Press any key to continue") ; 
-		sc.next() ; 
-		return true ; 
-	}
-		
+
 }
