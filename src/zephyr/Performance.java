@@ -1,6 +1,6 @@
 package zephyr;
 
-public class Performance implements Event
+public class Performance extends Event
 {
 	
 	private ArrayList<Pair> participants = new ArrayList<Pair> () ;
