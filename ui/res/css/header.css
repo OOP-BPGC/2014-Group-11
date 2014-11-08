@@ -1,0 +1,52 @@
+
+#header {
+    background: none repeat scroll 0 0 black;           /* changed the colot to black from #00979c*/
+    box-shadow: 0 2.5px 2.5px grey;
+    box-sizing: padding-box;
+    color: #edeeeb;                                     /* This is the color of the text in the header option: home, events,*/
+    height: 60px;
+    left: auto;
+    padding: 0 0 0 70px;
+    width: 100%;
+    z-index: 10000;
+}
+#header a {
+    display: block;
+    float: left;
+    font-size: 22px;
+    height: 30px;
+    padding: 18px 50px 12px;
+    text-align: center;
+    transition: all 0.4s ease 0s;
+}
+#header a:hover {
+    background: none repeat scroll 0 0 green;            /*color is the one where your hover over to the home,event*/
+}   
+#header > a > p {
+    display: none;
+    position: fixed;
+    top: 80px;
+}
+#header > a:hover > p {
+    display: block;
+}
+#topp {
+    background: none repeat scroll 0 0 black;           /* changed the color to black from #00979c*/
+}
+#topp > div {
+    margin: auto;
+    width: 1200px;
+}
+#topp > div > img, #topp > div > div:nth-child(2) {
+    float: left;
+}
+#topp > div > div:nth-child(2) {
+    padding: 0 25px;
+    width: 800px;
+}
+#topp > div > div:nth-child(2) > p {
+    color: white;                                       /*this is the color if the header: ZEPHYR, INTER HOSTEL*/;
+}
+#topp > div > div:nth-child(2) > p:first-child {
+    margin-top: 20px;
+}

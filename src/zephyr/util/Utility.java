@@ -1,10 +1,17 @@
+package zephyr.util;
+
 import java.util.* ;
 import java.io.* ; 
 import java.nio.file.*; 
 import java.sql.* ; 
+<<<<<<< HEAD:Console/Utility.java
 /* This class will provide all the database related functionality. */ 
 /* The database file of events will be made in the Events/ folder. */ 
 class Utility
+=======
+
+public class Utility
+>>>>>>> 5fe2ecfc3649e7c6863bdae51a4d6dd5ce8b5bf5:src/zephyr/util/Utility.java
 {
 	/* To be tested.*/ 
 	public boolean loginCorrect(int username, String password, Statement stmt) throws SQLException 
