@@ -27,12 +27,12 @@ public class TestCase
 			assertEquals(thrown1, true) ; 
 			try
 			{
-			thrown2 = false ; 
-			Class.forName("org.sqlite.JDBC");
-			Connection c = DriverManager.getConnection("jdbc:sqlite:common");
-			stmt = c.createStatement() ; 
-			assertEquals(ut.loginCorrect(13019,"yoyo",stmt), true) ; 
-			assertEquals(ut.loginCorrect(13019, "yoyoy", stmt), false) ; 
+				thrown2 = false ; 
+				Class.forName("org.sqlite.JDBC");
+				Connection c = DriverManager.getConnection("jdbc:sqlite:common");
+				stmt = c.createStatement() ; 
+				assertEquals(ut.loginCorrect(13019,"yoyo",stmt), true) ; 
+				assertEquals(ut.loginCorrect(13019, "yoyoy", stmt), false) ; 
 			}
 			catch(SQLException ex)
 			{
