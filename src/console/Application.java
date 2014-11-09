@@ -69,9 +69,13 @@ class Application
 					opt =  sc.nextInt() ; 
 					if(opt == 3)
 					{
-						ut.listAllParticipants() ; 
+						ArrayList<Person> pList ut.listAllParticipants() ; 
 						sc.nextLine() ; 
 						sc.nextLine() ; 
+						if(pList.size() > 0)
+						{
+							ArrayList<Competition> pList[0].getCompetitions(stmt) ; 
+						}
 					}
 					else if (opt == 6)
 					{

@@ -1,18 +1,20 @@
-package zephyr.util;
-
 import java.util.* ;
+import java.lang.* ; 
 import java.io.* ; 
 import java.nio.file.*; 
+import zephyr.Person ; 
 import java.sql.* ; 
 /* This class will provide all the database related functionality. */ 
 /* The database file of events will be made in the Events/ folder. */ 
 class Utility
-
-public class Utility
 {
 	/* To be tested.*/ 
 	public boolean loginCorrect(int username, String password, Statement stmt) throws SQLException 
 	{
+		if((password == null)||(stmt == null))
+		{
+			throw new java.lang.NullPointerException("NULL") ; 	
+		}
 		ResultSet rs = stmt.executeQuery("SELECT * FROM Person WHERE id = " + username) ; 
 		while(rs.next() == true)
 		{
@@ -22,7 +24,7 @@ public class Utility
 		return false ;
 	}
 
-	public static void listAllParticipants()
+	public static ArrayList<Person>  listAllParticipants()
 	{
 		try
 		{

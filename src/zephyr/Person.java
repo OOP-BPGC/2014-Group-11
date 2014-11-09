@@ -1,6 +1,8 @@
+package zephyr ; 
 import java.util.* ; 
+import zephyr.* ;  
 import java.sql.* ;
-class Person
+public class Person
 {
 	private String fName ; 
 	private String lName ; 
