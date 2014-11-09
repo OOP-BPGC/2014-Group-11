@@ -2,7 +2,6 @@ import java.util.* ;
 import java.lang.* ; 
 import java.io.* ; 
 import java.nio.file.*; 
-import zephyr.Person ; 
 import java.sql.* ; 
 /* This class will provide all the database related functionality. */ 
 /* The database file of events will be made in the Events/ folder. */ 
@@ -24,7 +23,7 @@ class Utility
 		return false ;
 	}
 
-	public static ArrayList<Person>  listAllParticipants()
+	public static void  listAllParticipants()
 	{
 		try
 		{
