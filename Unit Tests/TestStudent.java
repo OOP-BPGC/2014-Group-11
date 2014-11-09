@@ -12,8 +12,11 @@ public class TestStudent
 			Statement stmt = null ;
 			int ID = 1234;																	//random value assigned for checking
 			Student p = new Student(ID,"Sumit","Khaitan","CH5","sumuthegreat");								//creating an instance of student with ID = 1234
-			Competition cmp = new Competition ( "football", "lt-3", 2015, 7, 17, ID, 0);	//registering a student for competition with ID = 1234
+			Competition cmp = new Competition ( "football", "lt-3", 2015, 7, 17, ID, 0);
+
+                        //array of competitions student is participating in
 			ArrayList<Competition> al1= new ArrayList<Competition>();
+                        al1.add(cmp)
 			try
 			{
 				Class.forName("org.sqlite.JDBC");
@@ -22,10 +25,8 @@ public class TestStudent
 				
 				al1 = p.getCompetitions(stmt);												//getting the list of the competitions for the student
 				
-				if(al1.contains(cmp))														//checking the list for the given competition
-					assertTrue(true);
-				else
-					fail("Student with the id was not detected");
+                                assertTrue(al1.equals(p.getCompeititons(stmt)))
+                                
 			}
 			catch(SQLException ex)
 			{
