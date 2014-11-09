@@ -76,7 +76,7 @@ public class Student implements DatabaseEntry
 		}
 		return list ; 
 	} 	
-	public void writeToDataBase(Statement stmt) throws SQLException 
+	public void putToDataBase(Statement stmt) throws SQLException 
 	{
 		String sql = "INSERT INTO Person (fname, lname, hostel, id, password, type) VALUES ('" + fName + "','" +lName + "','"+hostel + "',"+id+",'"+password+"',"+0 + ");" ;
 		stmt.executeUpdate(sql) ; 
