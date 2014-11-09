@@ -4,7 +4,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
    TestCompetition.class,
    TestLogin.class
-   TestPerson.class
+   TestStudent.class
    TestRegister.class
    TestUtility.class
 })

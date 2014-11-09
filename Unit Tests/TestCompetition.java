@@ -1,31 +1,33 @@
-import static org.junit.Assert.assertEquals ; 
+import static org.junit.Assert.assertEquals ;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test ; 
 import java.sql.* ;
-import java.lang.* ; 
-public class TestPerson
+import java.lang.* ;
+
+public class TestCompetition
 {
 	@Test
-		public void testgetCompetitions()
+		public void testgetStudents()
 		{
 			boolean thrown1 = false;
 			boolean thrown2 = false;
 			Statement stmt = null ;
 			int ID = 1234;																	//random value assigned for checking
-			Person p = new Person(ID,"Sumit","Khaitan","CH5");								//creating an instance of person with ID = 1234
-			Competition cmp = new Competition ( "football", "lt-3", 2015, 7, 17, ID, 0);	//registering a person for competition with ID = 1234
-			ArrayList<Competition> al1= new ArrayList<Competition>();
+			Student p = new Student(ID,"Sumit","Khaitan","CH5","lollypop");								//creating an instance of person with ID = 1234
+			Competition cmp = new Competition ( "football", "lt-3", 2015, 7, 17, ID, 0);		//registering a person for competition with ID = 1234
+			ArrayList<Student> al1= new ArrayList<Student>();
 			try
 			{
 				Class.forName("org.sqlite.JDBC");
 				Connection c = DriverManager.getConnection("jdbc:sqlite:common");
 				stmt = c.createStatement() ; 
 				
-				al1 = p.getCompetitions(stmt);												//getting the list of the competitions for the person
+				al1 = cmp.getStudent(stmt);													//getting the list of the persons in the competition
 				
-				if(al1.contains(cmp))														//checking the list for the given competition
+				if(al1.contains(p))															//checking the list for the given ID
 					assertTrue(true);
 				else
-					fail("Person with the id was not detected");
+					fail("Student with the id was not detected");
 			}
 			catch(SQLException ex)
 			{

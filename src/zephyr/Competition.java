@@ -1,7 +1,7 @@
 package zephyr ; 
 import java.util.* ; 
 import java.sql.* ; 
-class Competition extends Event  
+class Competition extends Event  implements DatabaseEntry
 {
 	private String venue; 	
 	private String name ; 
@@ -24,11 +24,11 @@ class Competition extends Event
 		id = i ; 
 		rank = rnk ; 
 	}
-	public ArrayList<Person> getPeople(Statement stmt) throws SQLException 
+	public ArrayList<Student> getStudent(Statement stmt) throws SQLException 
 	{
-		ArrayList<Person> prs = new ArrayList<Person>()  ; 
+		ArrayList<Student> prs = new ArrayList<Student>()  ; 
 		String sql = "SELECT * FROM Competition WHERE name='" + name + "'" ; 
-		String cm = "SELECT * FROM Person WHERE id=" ; 
+		String cm = "SELECT * FROM Student WHERE id=" ; 
 		String sql2 = null ; 
 		ResultSet rs = stmt.executeQuery(sql) ; 
 		ResultSet rs2 = null ; 
@@ -37,11 +37,11 @@ class Competition extends Event
 			System.out.println("Looping outside") ;
 			sql2 = cm + rs.getInt("id") ; 
 			rs2 = stmt.executeQuery(sql2) ; 
-			prs.add(new Person(rs2.getInt("id"), rs2.getString("fname"), rs2.getString("lname"), rs2.getString("hostel"))) ; 	
+			prs.add(new Student(rs2.getInt("id"), rs2.getString("fname"), rs2.getString("lname"), rs2.getString("hostel"))) ; 	
 		} 
 		return prs ; 
 	}
-	public void writeToDataBase(Statement stmt) throws SQLException 
+	public void putToDataBase(Statement stmt) throws SQLException 
 	{
 		String sql = "INSERT INTO Competition (name, venue, year, month, date, id, rank) VALUES ('" + name + "','" + venue + "'," + year + "," + month + "," + date + "," + id +"," + rank + ");" ; 	
 		stmt.executeUpdate(sql) ; 

@@ -2,5 +2,5 @@ package zephyr;
 
 public interface DatabaseEntry
 {
-	void putToDatabase() ; 	
+	void putToDatabase(Statement stmt) ; 	
 }

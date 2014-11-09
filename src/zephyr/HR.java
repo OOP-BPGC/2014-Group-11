@@ -13,7 +13,7 @@ public class HR extends Student implements DatabaseEntry
         ;
     }
 
-    public void putToDatabase() {
+    public void putToDatabase(Statement stmt) {
 
     }
 
