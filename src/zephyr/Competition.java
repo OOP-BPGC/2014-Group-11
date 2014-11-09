@@ -24,7 +24,7 @@ class Competition extends Event  implements DatabaseEntry
 		id = i ; 
 		rank = rnk ; 
 	}
-	public ArrayList<Student> getStudent(Statement stmt) throws SQLException 
+	public ArrayList<Student> getStudents(Statement stmt) throws SQLException 
 	{
 		ArrayList<Student> prs = new ArrayList<Student>()  ; 
 		String sql = "SELECT * FROM Competition WHERE name='" + name + "'" ; 

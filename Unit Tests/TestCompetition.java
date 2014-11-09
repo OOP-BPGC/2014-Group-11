@@ -12,9 +12,12 @@ public class TestCompetition
 			boolean thrown1 = false;
 			boolean thrown2 = false;
 			Statement stmt = null ;
-			int ID = 1234;																	//random value assigned for checking
-			Student p = new Student(ID,"Sumit","Khaitan","CH5","lollypop");								//creating an instance of person with ID = 1234
-			Competition cmp = new Competition ( "football", "lt-3", 2015, 7, 17, ID, 0);		//registering a person for competition with ID = 1234
+			int ID = 1234;	//random value assigned for checking
+                        
+                        //assuming student with relevant details is present in the db
+			Student p = new Student(ID,"Sumit","Khaitan","CH5","lollypop");	 //creating an instance of person with ID = 1234
+			Competition cmp = new Competition ( "football", "lt-3", 2015, 7, 17, 123, 0);
+                        
 			ArrayList<Student> al1= new ArrayList<Student>();
 			try
 			{
@@ -23,11 +26,14 @@ public class TestCompetition
 				stmt = c.createStatement() ; 
 				
 				al1 = cmp.getStudent(stmt);													//getting the list of the persons in the competition
-				
-				if(al1.contains(p))															//checking the list for the given ID
+
+                                //checking if student is present in the db;
+				for(Student s: al1) {
+                                    if(s.getID() == p.getID())
 					assertTrue(true);
-				else
+                                    else
 					fail("Student with the id was not detected");
+                                }
 			}
 			catch(SQLException ex)
 			{
