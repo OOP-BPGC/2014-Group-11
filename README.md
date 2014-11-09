@@ -5,6 +5,9 @@ This is the official repository for the OOP Zephyr project of Group 11.
 ##### Note
 only stub codes are present as of now. Stub refinements and actual codes will be updated in the future.
 
+### To the Instructor
+We have followed a MVC (see below) in designing our application because we wanted code reusablity. The idea is to reuse the Model code (src/zephyr) to any platform (webapp, mobile, comannd line). So all the UML diagrams and unit tests are for the Model code alone. In writing the unit tests - we have written it for non-trivial methods of the model class which had minimial interaction with the database. So in some situations we have assumed the data we are checking for is already present in the database.
+
 ## Architecture
 The application is designed with MVC(Model View Controller) architecture in mind. The idea is to separate out the logic and state of application (model), handlers  (controller) and UI (view). This allows the model to exist independently so that the application doesn't become platform dependent. As a result the same model can be used for GUI, Web App, Mobile App etc. The controller and view will change correspondingly. Since we are making a Web Application - the controller will be Servlets and the view will be JSP.
 
