@@ -23,8 +23,6 @@ public class TestStudent
 				Connection c = DriverManager.getConnection("jdbc:sqlite:common");
 				stmt = c.createStatement() ; 
 				
-				al1 = p.getCompetitions(stmt);												//getting the list of the competitions for the student
-				
                                 assertTrue(al1.equals(p.getCompeititons(stmt)))
                                 
 			}
