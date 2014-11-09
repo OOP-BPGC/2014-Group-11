@@ -16,8 +16,6 @@ src - java source files
 
 ---- zephyr - model of the application
 
--------- j-unit tests - classes along with Suite class and Runner class for unit testing
-
 ---- console - controller java files for console related operations for Zephyr Controls
 
 ---- web - controller servlet files for the webapp
