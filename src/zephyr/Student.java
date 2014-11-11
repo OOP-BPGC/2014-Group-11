@@ -1,5 +1,4 @@
 package zephyr;
-
 import java.util.* ;
 import zephyr.util.*;
 
@@ -50,7 +49,7 @@ public class Student implements DatabaseEntry
     {
         /* Query DataBase. */
     }
-    public ArrayList<Passes> getPasses()
+    public ArrayList<Pass> getPasses()
     {
         /* Query */ 
     }

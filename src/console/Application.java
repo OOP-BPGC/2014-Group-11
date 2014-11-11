@@ -1,8 +1,12 @@
 /* Main application class which launches the console application.*/ 
+package console ; 
 import java.util.* ; 
 import java.io.* ; 
 import java.sql.*; 
-class Application
+import zephyr.*  ;
+import zephyr.util.Utility ; 
+
+public class Application
 {
 	public static Scanner sc = new Scanner(System.in) ; 
 	public static Utility ut = new Utility() ; 
@@ -69,13 +73,9 @@ class Application
 					opt =  sc.nextInt() ; 
 					if(opt == 3)
 					{
-						ArrayList<Person> pList ut.listAllParticipants() ; 
+						ut.listAllParticipants() ; 
 						sc.nextLine() ; 
 						sc.nextLine() ; 
-						if(pList.size() > 0)
-						{
-							ArrayList<Competition> pList[0].getCompetitions(stmt) ; 
-						}
 					}
 					else if (opt == 6)
 					{

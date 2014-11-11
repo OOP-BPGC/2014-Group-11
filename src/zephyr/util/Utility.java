@@ -6,8 +6,6 @@ import java.nio.file.*;
 import java.sql.* ; 
 /* This class will provide all the database related functionality. */ 
 /* The database file of events will be made in the Events/ folder. */ 
-class Utility
-
 public class Utility
 {
 	/* To be tested.*/ 

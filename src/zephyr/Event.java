@@ -4,18 +4,14 @@ import java.util.* ;
 
 public abstract class Event
 {
-	private String venue; 	
-	private int year ; 
-	private int month ; 
-	private int date ; 
-	private String name ; 
+	public String venue; 	
+	public int year ; 
+	public int month ; 
+	public int date ; 
+	public String name ; 
 	//abstract ArrayList<Person> getPeople() ;
-	protected String venue; 	
-	protected int year ; 
-	protected int month ; 
-	protected int date ;
-    
-	abstract ArrayList<Student> getStudent();
+
+	//abstract ArrayList<Student> getStudent();
     
 	public int getYear()
 	{

@@ -1,9 +1,9 @@
 package zephyr;
+import java.util.*; 
 
 public class Performance extends Event
 {
 	
-	private ArrayList<Pair> participants = new ArrayList<Pair> () ;
 	private String venue; 	
 	private int year ; 
 	private int month ; 

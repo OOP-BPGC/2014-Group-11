@@ -1,13 +1,9 @@
 package zephyr ; 
 import java.util.* ; 
 import java.sql.* ; 
-class Competition extends Event  
+public class Competition extends Event  
 {
-	private String venue; 	
 	private String name ; 
-	private int year ; 
-	private int month ; 
-	private int date ; 
 	private int id ; 
 	private int rank ; 
 	public String getName()

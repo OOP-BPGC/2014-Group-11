@@ -1,6 +1,5 @@
 package zephyr ; 
 import java.util.* ; 
-import zephyr.* ;  
 import java.sql.* ;
 public class Person
 {
