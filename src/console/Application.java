@@ -137,12 +137,16 @@ public class Application
 								System.out.println("The list of available tshirts are :- ") ; 
 								List<Integer> tList = ut.listAllTShirts(stmt) ; 
 								opt = sc.nextInt() ; 
-								while((opt > 0)&&(opt < tList.size() + 1))
+								if((opt > 0)&&(opt < tList.size() + 1))
 								{
 									System.out.println("\u001b[2J\u001b[H") ;
 									ut.printTShirtDetails(tList.get(opt-1), stmt);
 									sc.nextLine() ; 
 									sc.nextLine() ; 
+								}
+								else
+								{
+									return  ; 
 								}
 						}
 				}

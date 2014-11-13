@@ -71,11 +71,12 @@ public class Utility
 						iList.add(rs.getInt("eid")) ; 
 						rList.add(rs.getInt("rank")) ; 
 				}
+				System.out.format("|********************|********************|**********|**********|**********|\n") ; 
+				System.out.format("|%-20s|%-20s|%-10s|%-10s|%-10s|\n", "NAME", "VENUE", "DATE", "RANK", "ID") ; 
+				System.out.format("|********************|********************|**********|**********|**********|\n") ; 
 				for(int i=0; i<iList.size(); i++)
 				{
 						rs = stmt.executeQuery("SELECT * FROM competition WHERE id=" + iList.get(i)) ; 
-						System.out.format("|********************|********************|**********|**********|**********|\n") ; 
-						System.out.format("|%-20s|%-20s|%-10s|%-10s|%-10s|\n", "NAME", "VENUE", "DATE", "RANK", "ID") ; 
 						System.out.format("|********************|********************|**********|**********|**********|\n") ; 
 						System.out.format("|%-20s|%-20s|%-10s|%-10s|%-10s|\n", rs.getString("name"), rs.getString("venue"), rs.getInt("date") + "/" + rs.getInt("month") + "/" + rs.getInt("year"), rList.get(i), iList.get(i)) ; 
 						System.out.format("|********************|********************|**********|**********|**********|\n") ; 
@@ -91,12 +92,43 @@ public class Utility
 				}
 				System.out.format("|*****|*****|*****|*****|*****|\n") ; 
 		}	
-		public List<Integer>  listAllTShirts(Statement stmt) throws SQLException 
+		public List<Integer>  listAllTShirts(Statement stmt) throws SQLException  // lists all the tshirt methods. 
 		{
-			return null ; 
+				ResultSet rs = stmt.executeQuery("SELECT * FROM tshirt") ; 
+				List<Integer> tList = new ArrayList<>() ; 
+				System.out.format("|********************|*****|\n"); 
+				System.out.format("|%-20s|%-5s|\n", "NAME", "ID") ; 
+				while(rs.next() == true)
+				{
+						System.out.format("|********************|*****|\n"); 
+						System.out.format("|%-20s|%-5d|\n", rs.getString("name"), rs.getInt("tid")) ; 
+						tList.add(rs.getInt("tid")) ; 
+				}
+				System.out.format("|********************|*****|\n"); 
+				return tList ; 
 		}
-		public void printTShirtDetails(int id, Statement stmt)
+		public void printTShirtDetails(int id, Statement stmt) throws SQLException // lists details of individual tshirt. 
 		{
-			; 
+
+				System.out.format("|********************|*****|\n"); 
+				System.out.format("|%-20s|%-5s|\n", "NAME", "ID") ; 
+				System.out.format("|********************|*****|\n"); 
+				ResultSet rs = stmt.executeQuery("SELECT * FROM tshirt WHERE tid=" + id) ; 
+				System.out.format("|%-20s|%-5d|\n", rs.getString("name"), rs.getInt("tid")) ; 
+				System.out.format("|********************|*****|\n"); 
+				System.out.format("\n\n") ; 
+				rs = stmt.executeQuery("SELECT * FROM tshirtlist WHERE tid=" + id) ; 
+				boolean looped = false ; 
+				while(rs.next() == true)
+				{
+						System.out.format("|*****|*****|*****|*****|*****|*****|\n") ; 	
+						System.out.format("|%-5s|%-5s|%-5s|%-5s|%-5s|\n", "ID", "TID", "QS", "QM", "QL", "QXL") ; 
+						looped = true ; 
+				}
+				if(looped == true)
+				{
+					System.out.format("|*****|*****|*****|*****|*****|*****|\n") ; 
+				}
+				
 		}
 }
