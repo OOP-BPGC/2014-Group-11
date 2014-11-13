@@ -13,4 +13,5 @@ Person.class: zephyr/Person.java
 Competition.class: zephyr/Competition.java
 	javac zephyr/Competition.java
 clean:
-	rm -v -r *.class 
+	find . -name "*.class" -type f -delete
+	find . -name ".*.swp" -type f -delete
