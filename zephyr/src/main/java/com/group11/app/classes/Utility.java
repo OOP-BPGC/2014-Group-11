@@ -119,16 +119,29 @@ public class Utility
 				System.out.format("\n\n") ; 
 				rs = stmt.executeQuery("SELECT * FROM tshirtlist WHERE tid=" + id) ; 
 				boolean looped = false ; 
+				boolean first = false ; 
 				while(rs.next() == true)
 				{
-						System.out.format("|*****|*****|*****|*****|*****|*****|\n") ; 	
-						System.out.format("|%-5s|%-5s|%-5s|%-5s|%-5s|\n", "ID", "TID", "QS", "QM", "QL", "QXL") ; 
+						if(first == false)
+						{
+
+								System.out.format("|*****|*****|*****|*****|*****|*****|\n") ; 	
+								System.out.format("|%-5s|%-5s|%-5s|%-5s|%-5s|%-5s|\n", "TID", "ID", "QS", "QM", "QL", "QXL") ; 
+								System.out.format("|*****|*****|*****|*****|*****|*****|\n") ; 	
+								System.out.format("|%-5d|%-5d|%-5d|%-5d|%-5d|%-5d|\n", rs.getInt("tid"), rs.getInt("pid"), rs.getInt("s"), rs.getInt("m"), rs.getInt("l"),rs.getInt("xl")) ; 
+								first = true ; 
+						}
+						else
+						{
+								System.out.format("|*****|*****|*****|*****|*****|*****|\n") ; 	
+								System.out.format("|%-5d|%-5d|%-5d|%-5d|%-5d|%-5d|\n", rs.getInt("tid"), rs.getInt("pid"), rs.getInt("s"), rs.getInt("m"), rs.getInt("l"),rs.getInt("xl")) ; 
+						}
 						looped = true ; 
 				}
 				if(looped == true)
 				{
-					System.out.format("|*****|*****|*****|*****|*****|*****|\n") ; 
+						System.out.format("|*****|*****|*****|*****|*****|*****|\n") ; 
 				}
-				
+
 		}
 }

@@ -1,5 +1,6 @@
 /* Main application class which launches the console application.*/ 
-// TODO :- Add support for image as a blob in database. 
+// TODO :- Add support for image as a blob in database. .
+// TODO :- Might need to change the name of this class from app to application
 package com.group11.app ; 
 import java.util.* ; 
 import java.io.* ; 
@@ -129,10 +130,14 @@ public class App
 				int stateVar = 1 ; 
 				while(true)
 				{
+						System.out.println("\u001b[2J\u001b[H") ;
+						System.out.println("Please select the relevant option :- ") ; 
+						System.out.println("1)View details\n2)Add details") ; 
+						stateVar = sc.nextInt() ; 
 						if(stateVar == 1)
 						{
 								System.out.println("\u001b[2J\u001b[H") ;
-								System.out.println("Please select the relevant option :- ") ; 
+								System.out.println("Please select the relevant option.") ; 
 								System.out.println("The list of available tshirts are :- ") ; 
 								List<Integer> tList = ut.listAllTShirts(stmt) ; 
 								opt = sc.nextInt() ; 
@@ -147,6 +152,14 @@ public class App
 								{
 									return  ; 
 								}
+						}
+						else if (stateVar == 2)
+						{
+							/* Code to update database here. */ 
+						}
+						else 
+						{
+							return ; 
 						}
 				}
 		}
