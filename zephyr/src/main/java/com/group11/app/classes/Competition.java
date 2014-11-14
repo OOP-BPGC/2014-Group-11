@@ -20,9 +20,9 @@ public class Competition extends Event
 		id = i ; 
 		rank = rnk ; 
 	}
-	public ArrayList<Person> getPeople(Statement stmt) throws SQLException 
+	public ArrayList<Student> getPeople(Statement stmt) throws SQLException 
 	{
-		ArrayList<Person> prs = new ArrayList<Person>()  ; 
+		ArrayList<Student> prs = new ArrayList<Student>()  ; 
 		String sql = "SELECT * FROM Competition WHERE name='" + name + "'" ; 
 		String cm = "SELECT * FROM Person WHERE id=" ; 
 		String sql2 = null ; 
@@ -33,7 +33,7 @@ public class Competition extends Event
 			System.out.println("Looping outside") ;
 			sql2 = cm + rs.getInt("id") ; 
 			rs2 = stmt.executeQuery(sql2) ; 
-			prs.add(new Person(rs2.getInt("id"), rs2.getString("fname"), rs2.getString("lname"), rs2.getString("hostel"))) ; 	
+			prs.add(new Student(rs2.getInt("id"), rs2.getString("fname"), rs2.getString("lname"), rs2.getString("hostel"))) ; 	
 		} 
 		return prs ; 
 	}

@@ -6,4 +6,6 @@ compile:
 
 clean:
 	mvn clean
+rm:
+	find . -name ".*.swp" -type f -delete	
 

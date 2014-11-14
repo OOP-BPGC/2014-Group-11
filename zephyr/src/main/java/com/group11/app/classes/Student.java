@@ -1,19 +1,23 @@
 package classes ; 
 import java.util.* ; 
 import java.sql.* ;
-public class Person
+public class Student
 {
 	private String fName ; 
 	private String lName ; 
 	private String hostel ; 
 	private int  id ; 
 	private String password ; 
-	public Person(int i, String fn, String ln, String host)
+	public Student(int i, String fn, String ln, String host)
 	{
 		id = i ; 
 		fName = fn ; 
 		lName = ln ; 
 		hostel = host ; 
+	}
+	public Student()
+	{
+		;
 	}
 	public void setPassword(String pass)
 	{
