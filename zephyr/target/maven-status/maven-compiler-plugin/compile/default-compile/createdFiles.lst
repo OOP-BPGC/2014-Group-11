@@ -1,5 +1,9 @@
 zephyr/Competition.class
-zephyr/Event.class
-zephyr/util/Utility.class
+zephyr/Utility.class
 zephyr/Student.class
+zephyr/Pass.class
+zephyr/DatabaseEntry.class
+zephyr/Event.class
+zephyr/Performance.class
 com/group11/app/App.class
+zephyr/TShirt.class

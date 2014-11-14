@@ -3,9 +3,9 @@ import java.util.* ;
 import java.sql.* ; 
 public class Competition extends Event  
 {
-	private String name ; 
-	private int id ; 
-	private int rank ; 
+	public String name ; 
+	public int id ; 
+	public int rank ; 
 	public String getName()
 	{
 		return name ; 

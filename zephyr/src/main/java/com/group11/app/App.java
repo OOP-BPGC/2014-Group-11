@@ -6,7 +6,6 @@ import java.util.* ;
 import java.io.* ; 
 import java.sql.*; 
 import zephyr.*  ;
-import zephyr.util.* ;
 
 public class App
 {
@@ -118,7 +117,8 @@ public class App
 								if((opt > 0)&&(opt < pList.size()+1))
 								{
 										System.out.println("\u001b[2J\u001b[H") ;		
-										ut.printAllDetails(pList.get(opt-1), stmt) ; 
+										Student s = new Student(pList.get(opt-1)) ; 
+										ut.printAllDetails(s.getTShirts(stmt),s.getPasses(stmt), s.getPerformance(stmt)) ;  
 										sc.nextLine() ; 
 										sc.nextLine() ; 
 								}
