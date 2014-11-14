@@ -1,5 +1,4 @@
-
-package classes ; 
+package zephyr ; 
 import java.util.* ;
 
 public abstract class Event

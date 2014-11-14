@@ -1,5 +1,5 @@
 /var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/App.java
-/var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/classes/Competition.java
-/var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/classes/Event.java
-/var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/classes/Person.java
-/var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/classes/Utility.java
+/var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/zephyr/Event.java
+/var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/zephyr/util/Utility.java
+/var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/zephyr/Competition.java
+/var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/zephyr/Student.java

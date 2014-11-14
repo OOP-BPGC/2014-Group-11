@@ -1,5 +1,5 @@
-classes/Utility.class
-classes/Student.class
-classes/Event.class
-classes/Competition.class
+zephyr/Competition.class
+zephyr/Event.class
+zephyr/util/Utility.class
+zephyr/Student.class
 com/group11/app/App.class

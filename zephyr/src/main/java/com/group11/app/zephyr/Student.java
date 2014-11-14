@@ -1,4 +1,4 @@
-package classes ; 
+package zephyr ; 
 import java.util.* ; 
 import java.sql.* ;
 public class Student

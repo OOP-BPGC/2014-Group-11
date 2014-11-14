@@ -5,7 +5,8 @@ package com.group11.app ;
 import java.util.* ; 
 import java.io.* ; 
 import java.sql.*; 
-import classes.*  ;
+import zephyr.*  ;
+import zephyr.util.* ;
 
 public class App
 {
@@ -70,7 +71,7 @@ public class App
 								try
 								{
 										System.out.println("\u001b[2J\u001b[H") ; 	
-										System.out.println("Please choose the required option:- \n1)T-Sirts\n2)Passes\n3)Participants\n4)Performances\n5)Competitions\n6)Back") ; 
+										System.out.println("Please choose the required option:- \n1)T-Sirts\n2)Passes\n3)Participants\n4)Performances\n5)Competitions\n6)Controls\n7)Back") ; 
 										opt =  sc.nextInt() ; 
 										if(opt == 3)
 										{
@@ -81,6 +82,10 @@ public class App
 												tshirtLoop(stmt) ; 
 										}
 										else if (opt == 6)
+										{
+												controlsLoop(stmt) ; 
+										}
+										else if (opt == 7)
 										{
 												stateVar = 1 ; 
 												continue ; 
@@ -143,25 +148,47 @@ public class App
 								opt = sc.nextInt() ; 
 								if((opt > 0)&&(opt < tList.size() + 1))
 								{
-									System.out.println("\u001b[2J\u001b[H") ;
-									ut.printTShirtDetails(tList.get(opt-1), stmt);
-									sc.nextLine() ; 
-									sc.nextLine() ; 
+										System.out.println("\u001b[2J\u001b[H") ;
+										ut.printTShirtDetails(tList.get(opt-1), stmt);
+										sc.nextLine() ; 
+										sc.nextLine() ; 
 								}
 								else
 								{
-									return  ; 
+										return  ; 
 								}
 						}
 						else if (stateVar == 2)
 						{
-							/* Code to update database here. */ 
+								/* Code to update database here. */ 
 						}
 						else 
 						{
-							return ; 
+								return ; 
 						}
 				}
 		}
+		public static void controlsLoop(Statement stmt)
+		{
+				while(true)
+				{
+						System.out.println("\u001b[2J\u001b[H") ;
+						System.out.println("Please select the relevant option :- ") ; 
+						System.out.println("1)View details\n2)Add details") ; 
+						int stateVar = sc.nextInt() ;
+						if(stateVar == 1)
+						{
+								/* Add code to view the details. */ 
+						}
+						else if(stateVar == 2)
+						{
+								/* Code to update databse.*/ 
+						}
+						else
+						{
+								return ; 
+						}
+				}
+		}		
 
 }
