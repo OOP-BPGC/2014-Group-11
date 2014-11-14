@@ -83,6 +83,10 @@ public class App
 										{
 												controlsLoop(stmt) ; 
 										}
+										else if (opt == 5)
+										{
+												competeLoop(stmt) ; 
+										}
 										else if (opt == 7)
 										{
 												stateVar = 1 ; 
@@ -159,18 +163,18 @@ public class App
 						}
 						else if (stateVar == 2)
 						{
-							System.out.println("Please fill in the following details to update the tshirt database.") ; 
-							String name, path ; 
-							int id ; 
-							System.out.print("TShirt name: ") ; 
-							sc.nextLine() ; 
-							name = sc.nextLine() ; 
-							System.out.print("TShirt picture path: ") ; 
-							path = sc.nextLine() ; 
-							System.out.print("TShirt id: ") ; 
-							id = sc.nextInt() ; 
-							TShirt t = new TShirt(name, path, id) ; 
-							t.putToDatabase(stmt) ; 
+								System.out.println("Please fill in the following details to update the tshirt database.") ; 
+								String name, path ; 
+								int id ; 
+								System.out.print("TShirt name: ") ; 
+								sc.nextLine() ; 
+								name = sc.nextLine() ; 
+								System.out.print("TShirt picture path: ") ; 
+								path = sc.nextLine() ; 
+								System.out.print("TShirt id: ") ; 
+								id = sc.nextInt() ; 
+								TShirt t = new TShirt(name, path, id) ; 
+								t.putToDatabase(stmt) ; 
 						}
 						else 
 						{
@@ -200,5 +204,38 @@ public class App
 						}
 				}
 		}		
+
+
+		public static void competeLoop(Statement stmt) throws SQLException 
+		{
+				while(true)
+				{
+						System.out.println("\u001b[2J\u001b[H") ;
+						System.out.println("Please select the relevant option :- ") ; 
+						System.out.println("1)View details\n2)Add details") ; 
+						int stateVar = sc.nextInt() ;
+						if(stateVar == 1)
+						{
+								/* Add code to view the details. */ 
+								System.out.println("Please select the competition number to view more details about it.") ; 
+								List<Integer> idList = ut.printCompetitions(stmt) ; 
+								int opt = sc.nextInt() ; 
+								if((opt > 0)&&(opt <= idList.size()))
+								{
+									//ut.printCompetitionDetails(opt-1)  ;
+								}
+
+						}
+						else if(stateVar == 2)
+						{
+								/* Code to update databse.*/ 
+						}
+						else
+						{
+								return ; 
+						}
+				}
+		}
+
 
 }

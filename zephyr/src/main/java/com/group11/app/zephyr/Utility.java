@@ -124,4 +124,21 @@ public class Utility
 				}
 
 		}
+
+		public List<Integer> printCompetitions(Statement stmt) throws SQLException 
+		{
+				List<Integer> idList = new ArrayList<>() ; 
+				ResultSet rs = stmt.executeQuery("SELECT * from competition") ; 
+				System.out.println("Competitons : ") ; 
+				System.out.format("|********************|********************|**********|**********|\n") ; 
+				System.out.format("|%-20s|%-20s|%-10s|%-10s|\n", "NAME", "VENUE", "DATE", "ID") ; 
+				while(rs.next() == true)	
+				{
+						System.out.format("|********************|********************|**********|**********|\n") ; 
+						System.out.format("|%-20s|%-20s|%-10s|%-10s|\n", rs.getString("name"), rs.getString("venue"), rs.getInt("date") + "/" + rs.getInt("month") + "/" + rs.getInt("year") , rs.getInt("id")) ; 
+						idList.add(rs.getInt("id")) ; 
+				}
+				System.out.format("|********************|********************|**********|**********|\n") ; 
+				return idList ; 
+		}
 }
