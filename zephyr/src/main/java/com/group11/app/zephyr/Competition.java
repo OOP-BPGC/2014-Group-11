@@ -20,7 +20,7 @@ public class Competition extends Event
 		id = i ; 
 		rank = rnk ; 
 	}
-	public ArrayList<Student> getPeople(Statement stmt) throws SQLException 
+	public ArrayList<Student> getStudent(Statement stmt) throws SQLException 
 	{
 		ArrayList<Student> prs = new ArrayList<Student>()  ; 
 		String sql = "SELECT * FROM Competition WHERE name='" + name + "'" ; 

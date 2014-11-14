@@ -47,6 +47,10 @@ public class Student
 		{
 				return lName ; 
 		}
+		public int getID()
+		{
+			return id; 
+		}
 		public String getHostel()
 		{
 				return hostel ; 
