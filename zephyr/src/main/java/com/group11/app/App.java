@@ -16,7 +16,6 @@ public class App
 		public static Statement stmt = null ; 
 		public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException
 		{
-
 				Class.forName("org.sqlite.JDBC");
 				c = DriverManager.getConnection("jdbc:sqlite:common");
 				stmt = c.createStatement() ; 
@@ -160,7 +159,18 @@ public class App
 						}
 						else if (stateVar == 2)
 						{
-								/* Code to update database here. */ 
+							System.out.println("Please fill in the following details to update the tshirt database.") ; 
+							String name, path ; 
+							int id ; 
+							System.out.print("TShirt name: ") ; 
+							sc.nextLine() ; 
+							name = sc.nextLine() ; 
+							System.out.print("TShirt picture path: ") ; 
+							path = sc.nextLine() ; 
+							System.out.print("TShirt id: ") ; 
+							id = sc.nextInt() ; 
+							TShirt t = new TShirt(name, path, id) ; 
+							t.putToDatabase(stmt) ; 
 						}
 						else 
 						{
