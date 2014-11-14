@@ -1,4 +1,4 @@
-package zephyr;
+package com.group11.app.zephyr;
 import java.util.*; 
 
 public class Performance extends Event

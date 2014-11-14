@@ -1,5 +1,5 @@
 package com.group11.app;
-
+import com.group11.app.zephyr.* ;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -33,6 +33,5 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
     }
 }

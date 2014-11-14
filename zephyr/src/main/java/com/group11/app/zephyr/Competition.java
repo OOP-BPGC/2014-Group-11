@@ -1,4 +1,4 @@
-package zephyr ; 
+package com.group11.app.zephyr ; 
 import java.util.* ; 
 import java.sql.* ; 
 public class Competition extends Event  
