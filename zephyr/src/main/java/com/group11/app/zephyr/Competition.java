@@ -20,6 +20,7 @@ public class Competition extends Event
 		id = i ; 
 		rank = rnk ; 
 	}
+	//TODO :- To be corrected.
 	public ArrayList<Student> getStudent(Statement stmt) throws SQLException 
 	{
 		ArrayList<Student> prs = new ArrayList<Student>()  ; 

@@ -5,6 +5,7 @@
 /var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/zephyr/Utility.java
 /var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/zephyr/TShirt.java
 /var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/zephyr/Competition.java
+/var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/zephyr/Register.java
 /var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/zephyr/DatabaseEntry.java
 /var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/zephyr/Student.java
 /var/lib/tomcat7/webapps/Group-11/zephyr/src/main/java/com/group11/app/zephyr/Pass.java

@@ -49,7 +49,7 @@ public class Student
 		}
 		public int getID()
 		{
-			return id; 
+				return id; 
 		}
 		public String getHostel()
 		{

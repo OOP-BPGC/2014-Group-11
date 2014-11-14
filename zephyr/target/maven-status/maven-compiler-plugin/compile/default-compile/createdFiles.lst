@@ -4,6 +4,7 @@ com/group11/app/zephyr/Competition.class
 com/group11/app/zephyr/Student.class
 com/group11/app/zephyr/Event.class
 com/group11/app/zephyr/DatabaseEntry.class
+com/group11/app/zephyr/Register.class
 com/group11/app/zephyr/Utility.class
 com/group11/app/zephyr/Pass.class
 com/group11/app/App.class
