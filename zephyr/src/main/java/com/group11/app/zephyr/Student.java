@@ -6,8 +6,8 @@ public class Student
 		private String fName ; 
 		private String lName ; 
 		private String hostel ; 
-		private int  id ; 
-		private String password ; 
+		public int  id ; 
+		public String password ; 
 		public Student(int i, String fn, String ln, String host)
 		{
 				id = i ; 
