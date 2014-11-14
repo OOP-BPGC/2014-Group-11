@@ -58,21 +58,21 @@ public class Student
 				// get the list of tshirt orders.
 				while(rs.next() == true)
 				{
-					tList.add(new TShirt(null, rs.getInt("tid"), rs.getInt("s"), rs.getInt("m"), rs.getInt("l"), rs.getInt("xl"))) ; 
+						tList.add(new TShirt(null, rs.getInt("tid"), rs.getInt("s"), rs.getInt("m"), rs.getInt("l"), rs.getInt("xl"))) ; 
 				}
 				// now populate the names of the respective ids.
 				for(int i=0; i<tList.size(); i++)
 				{
-					rs = stmt.executeQuery("SELECT * FROM tshirt WHERE tid=" + tList.get(i).id) ; 
-					tList.get(i).name = rs.getString("name") ; 
+						rs = stmt.executeQuery("SELECT * FROM tshirt WHERE tid=" + tList.get(i).id) ; 
+						tList.get(i).name = rs.getString("name") ; 
 				}
 				return tList ; 
 				/* Query DataBase. */
 		}
 		public ArrayList<Pass> getPasses(Statement stmt)
 		{
-			return new ArrayList<Pass>() ; 
-			/* Query */ 
+				return new ArrayList<Pass>() ; 
+				/* Query */ 
 		}
 		//public void castoll(Event event, int choice) 
 		//{
@@ -85,15 +85,31 @@ public class Student
 		/* Writes itself to the database. */ 
 		public ArrayList<Competition> getPerformance(Statement stmt) throws SQLException 
 		{
-				String sql = "SELECT * FROM Competition WHERE id=" + id ; 
-				ResultSet rs = stmt.executeQuery(sql) ; 
-				ArrayList<Competition> list = new ArrayList<Competition>() ; 
+				String sql = "SELECT * FROM ranklist WHERE pid=" + id ; 
+				ResultSet rs = stmt.executeQuery(sql) ; // get those competitions where students have participated.
+				ArrayList<Integer> eList = new ArrayList<>() ; 
+				ArrayList<Competition> cList = new ArrayList<Competition>() ; 
+				int i =0 ; 
 				while(rs.next() == true)
 				{
-						list.add(new Competition(rs.getString("name"), rs.getString("venue"), rs.getInt("year"), rs.getInt("month"), rs.getInt("date"), id, rs.getInt("rank"))) ;
+						eList.add(rs.getInt("eid")) ; 
+						cList.add(new Competition(null, null, 0,0,0,eList.get(i),rs.getInt("rank"))) ; 
+						i++ ; 
 				}
-				return list ; 
+				// now get the name and the dates based on the eid derived above.
+				for(i=0; i<eList.size(); i++)
+				{
+						rs = stmt.executeQuery("SELECT * FROM competition where id=" + eList.get(i)) ; 
+						cList.get(i).name = rs.getString("name") ; 
+						cList.get(i).venue = rs.getString("venue") ; 
+						cList.get(i).year = rs.getInt("year") ; 
+						cList.get(i).month = rs.getInt("month") ; 
+						cList.get(i).date = rs.getInt("date") ; 
+				}
+				return cList ; 
 		} 	
+
+
 		public void writeToDataBase(Statement stmt) throws SQLException 
 		{
 				String sql = "INSERT INTO Person (fname, lname, hostel, id, password, type) VALUES ('" + fName + "','" +lName + "','"+hostel + "',"+id+",'"+password+"',"+0 + ");" ;

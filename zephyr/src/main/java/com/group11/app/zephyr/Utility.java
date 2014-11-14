@@ -8,6 +8,7 @@ import java.sql.* ;
 /* The database file of events will be made in the Events/ folder. */ 
 public class Utility
 {
+		// -----------------------------------------------------------------------------------------// 
 		/* To be tested.*/ 
 		public boolean loginCorrect(int username, String password, Statement stmt) throws SQLException 
 		{
@@ -20,6 +21,7 @@ public class Utility
 				return false ;
 		}
 
+		// ----------------------------------------------------------------------------------------------------// 
 		public static List<Integer>  listAllParticipants(Statement stmt)
 		{
 				try
@@ -46,18 +48,19 @@ public class Utility
 						return null ; 
 				}
 		}
+		// --------------------------------------------------------------------------------------------------------------//
 		public static void printAllDetails(ArrayList<TShirt> tList, ArrayList<Pass> pList, ArrayList<Competition> cList ) throws SQLException 
 		{
 				System.out.println("Competitons : ") ; 
 				System.out.format("|********************|********************|**********|**********|**********|\n") ; 
 				System.out.format("|%-20s|%-20s|%-10s|%-10s|%-10s|\n", "NAME", "VENUE", "DATE", "RANK", "ID") ; 
-				System.out.format("|********************|********************|**********|**********|**********|\n") ; 
 				for(int i=0; i<cList.size(); i++)
 				{
 						System.out.format("|********************|********************|**********|**********|**********|\n") ; 
 						System.out.format("|%-20s|%-20s|%-10s|%-10s|%-10s|\n", cList.get(i).name, cList.get(i).venue, cList.get(i).date + "/" + cList.get(i).month + "/" + cList.get(i).year,cList.get(i).rank , cList.get(i).id) ; 
-						System.out.format("|********************|********************|**********|**********|**********|\n") ; 
 				}
+
+				System.out.format("|********************|********************|**********|**********|**********|\n") ; 
 				System.out.println("TShirt: ") ; 
 				System.out.format("|*****|*****|*****|*****|*****|\n") ; 
 				System.out.format("|%-5s|%-5s|%-5s|%-5s|%-5s|\n", "ID", "QS", "QM", "QL", "QXL") ; 
@@ -68,6 +71,7 @@ public class Utility
 				}
 				System.out.format("|*****|*****|*****|*****|*****|\n") ; 
 		}	
+		// ------------------------------------------------------------------------------------------------------------// 
 		public List<Integer>  listAllTShirts(Statement stmt) throws SQLException  // lists all the tshirt methods. 
 		{
 				ResultSet rs = stmt.executeQuery("SELECT * FROM tshirt") ; 
