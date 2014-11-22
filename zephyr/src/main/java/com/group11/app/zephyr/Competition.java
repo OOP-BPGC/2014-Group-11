@@ -1,7 +1,7 @@
 package com.group11.app.zephyr ; 
 import java.util.* ; 
 import java.sql.* ; 
-public class Competition extends Event  
+public class Competition extends Event implements DatabaseEntry
 {
 	public String name ; 
 	public int id ; 
@@ -38,7 +38,7 @@ public class Competition extends Event
 		} 
 		return prs ; 
 	}
-	public void writeToDataBase(Statement stmt) throws SQLException 
+	public void putToDataBase(Statement stmt) throws SQLException 
 	{
 		String sql = "INSERT INTO Competition (name, venue, year, month, date, id, rank) VALUES ('" + name + "','" + venue + "'," + year + "," + month + "," + date + "," + id +"," + rank + ");" ; 	
 		stmt.executeUpdate(sql) ; 
