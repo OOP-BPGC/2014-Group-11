@@ -14,15 +14,21 @@ public class Login
 		{
 				try
 				{
-						Connection c = DriverManager.getConnection("jdbc:sqlite:common");
-						Statement stmt = c.createStatement() ; 
-						Utility ut = new Utility() ; 
-						return ut.loginCorrect(s.id, s.password, stmt)  ;
+                    Class.forName("org.sqlite.JDBC");
+                    Connection c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
+                    Statement stmt = c.createStatement() ; 
+                    Utility ut = new Utility() ;
+                    return ut.loginCorrect(s.id, s.password, stmt)  ;
 				}
 				catch(SQLException ex)
 				{
 						ex.printStackTrace() ; 
-						return false ; 
+                        return false ; 
 				}
+
+                catch(ClassNotFoundException ex) {
+                    ex.printStackTrace();
+                    return false;
+                }
 		}
 }

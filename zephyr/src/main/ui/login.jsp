@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page import="java.util.*" %>
 <html>
     <head>
 
@@ -56,6 +56,14 @@
                     <form action="" method="post" > <h3>LOGIN AS STUDENT </h3><br/><br/>                        <!-- need to set action link-->
                     Username: <input type="text" name="username" placeholder="Username"> <br/><br/>
                     Password: <input type="password" name="password" placeholder="Password"> <br/><br/>
+                    <%
+                    boolean check = (boolean) request.getAttribute("check");
+                    if(check != null) {
+                    if(!check) {
+                      out.println("<h5 style=\"color:red\">   Invalid Credentials </h5>");
+                    }
+                    }
+                    %>
                     <input type="submit" value="Login as Student">
                     </form>
                 </div>
