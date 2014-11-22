@@ -23,18 +23,32 @@ public class TShirtList implements DatabaseEntry {
             stmt.executeUpdate("INSERT INTO tshirtlist VALUES(" + tshirt.id + ", " + s.id + ", " + tshirt.qs + ", " + tshirt.qm + ", " + tshirt.ql + ", " + tshirt.qxl + ");");
             
 
-        } catch(SQLException e) {
+        } 
+	catch(SQLException e) 
+	{
             e.printStackTrace();            
             
-        } finally {
-            try {
+        } 
+	catch(ClassNotFoundException e)
+	{
+		e.printStackTrace(); 
+	}
+	finally 
+	{
+            try 
+	    {
                 stmt.close();
-            } catch(SQLException e) {
+            } 
+	    catch(SQLException e) 
+	    {
                 e.printStackTrace();
             }
-            try {
+            try 
+	    {
                 c.close();
-            } catch(SQLException e) {
+            } 
+	    catch(SQLException e) 
+	    {
                 e.printStackTrace();
             }
         }

@@ -38,6 +38,7 @@ public class Competition extends Event implements DatabaseEntry
 		} 
 		return prs ; 
 	}
+
 	public void putToDatabase() 
 	{
 		String sql = "INSERT INTO Competition (name, venue, year, month, date, id, rank) VALUES ('" + name + "','" + venue + "'," + year + "," + month + "," + date + "," + id +"," + rank + ");" ; 			
@@ -65,5 +66,6 @@ public class Competition extends Event implements DatabaseEntry
                 e.printStackTrace();
             }
         }
+
 	}
 }

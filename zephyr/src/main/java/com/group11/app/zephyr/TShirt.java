@@ -35,25 +35,66 @@ public class TShirt implements DatabaseEntry
         Connection c = null;
         Statement stmt = null;
         
-        try {
+        try 
+	{
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
             stmt = c.createStatement() ;
 
             stmt.executeUpdate("INSERT INTO tshirt VALUES(\"" + name + "\", \""+path + "\", " + id + ")") ; 	            
 
-        } catch(SQLException e) {
+        } 
+	catch(SQLException e) 
+	{
+
             e.printStackTrace();            
             
-        } finally {
-            try {
+        } 
+	catch(ClassNotFoundException e)
+	{
+		e.printStackTrace() ; 
+	}
+	finally 
+	{
+            try 
+	    {
                 stmt.close();
-            } catch(SQLException e) {
+            } 
+	    catch(SQLException e) 
+	    {
                 e.printStackTrace();
             }
-            try {
+            try 
+	    {
                 c.close();
-            } catch(SQLException e) {
+            } 
+	    catch(SQLException e) 
+	    {
+                e.printStackTrace();
+            }
+        }                        
+    }
+    public void putToDatabase(Statement stmt) 
+    {
+        try 
+	{
+            stmt.executeUpdate("INSERT INTO tshirt VALUES(\"" + name + "\", \""+path + "\", " + id + ")") ; 	            
+
+        } 
+	catch(SQLException e) 
+	{
+
+            e.printStackTrace();            
+            
+        } 
+	finally 
+	{
+            try 
+	    {
+                stmt.close();
+            } 
+	    catch(SQLException e) 
+	    {
                 e.printStackTrace();
             }
         }                        

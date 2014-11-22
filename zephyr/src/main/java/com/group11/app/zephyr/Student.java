@@ -8,6 +8,10 @@ public class Student implements DatabaseEntry
     private String hostel ; 
     public int  id ; 
     public String password ; 
+    public Student()
+    {
+    	; 
+    }
     public Student(int i, String fn, String ln, String host)
     {
         id = i ; 
@@ -120,7 +124,8 @@ public class Student implements DatabaseEntry
         Connection c = null;
         Statement stmt = null;
         
-        try {
+        try 
+	{
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
             stmt = c.createStatement() ;
@@ -128,16 +133,26 @@ public class Student implements DatabaseEntry
             stmt.executeUpdate(sql);
             
 
-        } catch(SQLException e) {
+        } 
+	catch(SQLException e) 
+	{
             e.printStackTrace();            
             
-        } finally {
-            try {
+        } 
+	catch(ClassNotFoundException ex)
+	{
+		ex.printStackTrace() ;
+	}
+	finally 
+	{
+            try 
+	    {
                 stmt.close();
             } catch(SQLException e) {
                 e.printStackTrace();
             }
-            try {
+            try 
+	    {
                 c.close();
             } catch(SQLException e) {
                 e.printStackTrace();
