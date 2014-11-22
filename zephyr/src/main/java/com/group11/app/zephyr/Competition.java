@@ -49,6 +49,7 @@ public class Competition extends Event implements DatabaseEntry
 		
 		try
 		{
+		Class.forName("org.sqlite.JDBC");
 		Connection c = DriverManager.getConnection("jdbc:sqlite:common");
 		Statement stmt = c.createStatement() ; 
 		String sql = "INSERT INTO Competition (name, venue, year, month, date, id, rank) VALUES ('" + name + "','" + venue + "'," + year + "," + month + "," + date + "," + id +"," + rank + ");" ; 	
@@ -57,6 +58,10 @@ public class Competition extends Event implements DatabaseEntry
 		catch(SQLException ex)
 		{
 			ex.printStackTrace() ; 
+		}
+		catch(ClassNotFoundException e)
+		{
+			e.printStackTrace() ;
 		}
 	}
 }
