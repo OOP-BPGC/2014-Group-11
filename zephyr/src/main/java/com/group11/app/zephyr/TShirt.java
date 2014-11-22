@@ -32,16 +32,6 @@ public class TShirt implements DatabaseEntry
     @Override
     public void putToDatabase() 
     {
-        try
-        {
-
-            System.out.println("Database succesfully updated !\n") ; 
-        }
-        catch(SQLException ex)
-        {
-            ex.printStackTrace() ; 
-        }
-        ;
         Connection c = null;
         Statement stmt = null;
         
@@ -67,5 +57,37 @@ public class TShirt implements DatabaseEntry
                 e.printStackTrace();
             }
         }                        
+    }
+
+    public static int getNoTShirts() {
+        Connection c = null;
+        Statement stmt = null;
+        int norows = 0;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
+            stmt = c.createStatement() ;
+
+            ResultSet rs = stmt.executeQuery("SELECT count(*) as rowcount FROM tshirt;");
+            norows = rs.getInt("rowcount");
+
+        } catch(SQLException e) {
+            e.printStackTrace();            
+            
+        } finally {
+            try {
+                stmt.close();
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                c.close();
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+
+            return norows;
+        }
+
     }
 }
