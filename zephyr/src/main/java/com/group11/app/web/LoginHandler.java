@@ -71,7 +71,7 @@ public class LoginHandler extends HttpServlet {
 
             
             ResultSet rs = stmt.executeQuery("SELECT type from person WHERE id = " + s.getID() );
-            if(rs.getInt("id") == 1) {
+            if(rs.getInt("type") == 1) {
                 check = true;
             }
             else {
