@@ -14,11 +14,11 @@ public class LoginTest
         Student s1 = new Student(13123,"Anurag","Rai","AH4");		//creating an object of student        
 		s1.password="password" ;
         Login l = new Login(s1);			          
-		assertFalse(l.checkCredentials()) ; 
+		assertFalse(l.checkCredentials(true)) ; 
 		s1 = new Student(13019, "Pratik", "Singhal", "AH7") ; 
 		s1.password="yoyo" ;
 		l = new Login(s1) ; 
-        assertTrue(l.checkCredentials());				//checking the method     
+        assertTrue(l.checkCredentials(true));				//checking the method     
      
     }
      
