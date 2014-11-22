@@ -134,4 +134,38 @@ public class TShirt implements DatabaseEntry
         }
 
     }
+
+    public static String getName(int id) {
+        Connection c = null;
+        Statement stmt = null;
+        String name = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
+            stmt = c.createStatement() ;
+
+            ResultSet rs = stmt.executeQuery("SELECT name FROM tshirt WHERE tid = " + id +";" );
+            name = rs.getString("name");
+
+        } catch(SQLException e) {
+            e.printStackTrace();            
+            
+        } catch(ClassNotFoundException e) {
+            e.printStackTrace();
+            
+        } finally {
+            try {
+                stmt.close();
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                c.close();
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+
+            return name;
+        }
+    }
 }

@@ -16,8 +16,8 @@ public class TShirtHandler extends HttpServlet {
             Student s = new Student(uid, null, null, null);
             int notees = TShirt.getNoTShirts();
             for(int i = 0; i < notees; i++) {
-                String name = request.getParameter("shirt" + i + 1);
                 int id = i + 1;
+                String name = TShirt.getName(id);                
                 int qs = Integer.parseInt(request.getParameter("shirt" + i + 1 + "s"));
                 int qm = Integer.parseInt(request.getParameter("shirt" + i + 1 + "m"));
                 int ql = Integer.parseInt(request.getParameter("shirt" + i + 1 + "l"));
