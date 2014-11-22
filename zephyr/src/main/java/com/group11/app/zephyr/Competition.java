@@ -38,9 +38,25 @@ public class Competition extends Event implements DatabaseEntry
 		} 
 		return prs ; 
 	}
-	public void putToDataBase(Statement stmt) throws SQLException 
+	//public void putToDataBase(Statement stmt) throws SQLException 
+	//{
+	//	String sql = "INSERT INTO Competition (name, venue, year, month, date, id, rank) VALUES ('" + name + "','" + venue + "'," + year + "," + month + "," + date + "," + id +"," + rank + ");" ; 	
+	//	stmt.executeUpdate(sql) ; 
+	//}
+	@Override
+	public void putToDatabase()
 	{
+		
+		try
+		{
+		Connection c = DriverManager.getConnection("jdbc:sqlite:common");
+		Statement stmt = c.createStatement() ; 
 		String sql = "INSERT INTO Competition (name, venue, year, month, date, id, rank) VALUES ('" + name + "','" + venue + "'," + year + "," + month + "," + date + "," + id +"," + rank + ");" ; 	
 		stmt.executeUpdate(sql) ; 
+		}
+		catch(SQLException ex)
+		{
+			ex.printStackTrace() ; 
+		}
 	}
 }

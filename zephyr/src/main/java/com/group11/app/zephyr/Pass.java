@@ -7,8 +7,7 @@ public class Pass implements DatabaseEntry
     Performance perf ;
 
 	@Override
-    public void putToDatabase(Statement stmt)
+    public void putToDatabase()
 	{
-
-    }
+    	}
 }
