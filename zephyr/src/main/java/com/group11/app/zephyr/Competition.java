@@ -41,6 +41,7 @@ public class Competition extends Event implements DatabaseEntry
 
 	public void putToDatabase() 
 	{
+<<<<<<< HEAD
 		String sql = "INSERT INTO Competition (name, venue, year, month, date, id, rank) VALUES ('" + name + "','" + venue + "'," + year + "," + month + "," + date + "," + id +"," + rank + ");" ; 			
         Connection c = null;
         Statement stmt = null;
