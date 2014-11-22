@@ -12,7 +12,7 @@ public class TShirtHandler extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         
         if(request.getSession().getAttribute("user-id") != null) {
-            int uid = Integer.parseInt(request.getSession().getAttribute("user-id"));
+            int uid = (Integer) request.getSession().getAttribute("user-id");
             Student s = new Student(uid, null, null, null);
             int notees = TShirt.getNoTShirts();
             for(int i = 0; i < notees; i++) {
@@ -25,7 +25,7 @@ public class TShirtHandler extends HttpServlet {
 
                 TShirt t = new TShirt(name, i, qs, qm, ql, qxl);
 
-                TShirtList tl = new TShritList(t, s);
+                TShirtList tl = new TShirtList(t, s);
                 tl.putToDatabase();
             }
         }
