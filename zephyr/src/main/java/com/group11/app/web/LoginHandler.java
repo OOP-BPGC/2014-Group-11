@@ -60,26 +60,44 @@ public class LoginHandler extends HttpServlet {
     }
 
     private boolean checkHR(Student s) {
-
+        boolean check = false;
+        Connection c = null;
+        Statement stmt = null;
+        
         try {
-        Class.forName("org.sqlite.JDBC");
-        Connection c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
-        Statement stmt = c.createStatement() ;
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
+            stmt = c.createStatement() ;
 
-        ResultSet rs = stmt.executeQuery("SELECT type from person WHERE id = " + s.getID() );
-        if(rs.getInt("id") == 1) {
-            return true;
-        }
-        else {
-            return false;
-        }
+            
+            ResultSet rs = stmt.executeQuery("SELECT type from person WHERE id = " + s.getID() );
+            if(rs.getInt("id") == 1) {
+                check = true;
+            }
+            else {
+                check = false;
+            }
 
         } catch(SQLException e) {
-            e.printStackTrace();
-            return false;
+            e.printStackTrace();            
+            
         } finally {
-            stmt.close();
-            c.close();
+
+            try {
+                stmt.close();
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+
+
+            try {
+                c.close();
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+
+
+            return check;
         }
     }
 
