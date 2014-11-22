@@ -53,18 +53,18 @@
                 
             <link rel="stylesheet" type="text/css" href="res/css/home.css">
                 <div style="float: left; margin-left: 100px; margin-right : 100px; margin-top : 50px;">
-                    <form action="" method="post" > <h3>LOGIN AS STUDENT </h3><br/><br/>                        <!-- need to set action link-->
+                    <form  method="post" > <h3>LOGIN</h3><br/><br/>                        <!-- need to set action link-->
                     Username: <input type="text" name="username" placeholder="Username"> <br/><br/>
                     Password: <input type="password" name="password" placeholder="Password"> <br/><br/>
                     <%
-                    boolean check = (boolean) request.getAttribute("check");
+                    String check = (String) request.getAttribute("check");
                     if(check != null) {
-                    if(!check) {
+                    if(check.equals("false")) {
                       out.println("<h5 style=\"color:red\">   Invalid Credentials </h5>");
                     }
                     }
                     %>
-                    <input type="submit" value="Login as Student">
+                    <input type="submit" value="Login">
                     </form>
                 </div>
                 <div style="margin-top : 50px; margin-bottom : 100px;" >

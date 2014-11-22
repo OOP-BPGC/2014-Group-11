@@ -1,3 +1,6 @@
+<%@ page import="java.util.*" %>
+<%@ page import="com.group11.app.zephyr.*" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,7 +44,7 @@
                 <p>View the Time and Venue of Zephyr'15</p>
             </a>
 
-            <a href="" id="info">Log-out                                                           <!-- need to set action link-->
+            <a href="logout" id="info">Log-out                                                           <!-- need to set action link-->
                 <p>If you're done and dusted</p>
             </a>
 
@@ -78,8 +81,10 @@
                     <div id="hrule" style="height: 60px"></div>
 
                     <h2 style="margin-left: 320px;">Your next event is at:</h2>
-                    <h4 style="margin-left: 320px;">Name of the event</h4>
-                    <h5 style="margin-left: 320px;">The time and venue</h5>
+                    <%
+                    //ArrayList<Competition> comp = 
+
+                    %>
 
                     <div id="hrule" style="height: 60px"></div>
                     <div id="hrule" style="height: 60px"></div>         

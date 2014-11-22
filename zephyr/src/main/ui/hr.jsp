@@ -41,7 +41,7 @@
                 <p>View the Time and Venue of Zephyr'15</p>
             </a>
 
-            <a href="" id="info">Log-out                                                           <!-- need to set action link-->
+            <a href="logout" id="info">Log-out                                                           <!-- need to set action link-->
                 <p>If you're done and dusted</p>
             </a>
 
