@@ -35,9 +35,19 @@ public class LoginHandler extends HttpServlet {
         
         if(l.checkCredentials()) {
             request.getSession().setAttribute("user-id", userid);
+            
+            boolean hr = checkHR(s);
+            if(!hr) {
 
-            RequestDispatcher studentView = request.getRequestDispatcher("student.jsp");
-            studentView.forward(request, response);
+                RequestDispatcher studentView = request.getRequestDispatcher("student.jsp");
+                studentView.forward(request, response);
+            }
+
+            else {
+                RequestDispatcher hrView = request.getRequestDispatcher("hr.jsp");
+                hrView.forward(request, response);
+                
+            }
         }
 
         else {
@@ -50,6 +60,8 @@ public class LoginHandler extends HttpServlet {
     }
 
     private boolean checkHR(Student s) {
+
+        try {
         Class.forName("org.sqlite.JDBC");
         Connection c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
         Statement stmt = c.createStatement() ;
@@ -62,9 +74,13 @@ public class LoginHandler extends HttpServlet {
             return false;
         }
 
-        stmt.close();
-        c.close();
-        
+        } catch(SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            stmt.close();
+            c.close();
+        }
     }
 
 
