@@ -54,6 +54,8 @@ public class Competition extends Event implements DatabaseEntry
         } catch(SQLException e) {
             e.printStackTrace();            
             
+        } catch(ClassNotFoundException e) {
+            e.printStackTrace();
         } finally {
             try {
                 stmt.close();

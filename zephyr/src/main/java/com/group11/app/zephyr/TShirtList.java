@@ -24,31 +24,31 @@ public class TShirtList implements DatabaseEntry {
             
 
         } 
-	catch(SQLException e) 
-	{
+        catch(SQLException e) 
+        {
             e.printStackTrace();            
             
         } 
-	catch(ClassNotFoundException e)
-	{
-		e.printStackTrace(); 
-	}
-	finally 
-	{
+        catch(ClassNotFoundException e)
+        {
+            e.printStackTrace(); 
+        }
+        finally 
+        {
             try 
-	    {
+            {
                 stmt.close();
             } 
-	    catch(SQLException e) 
-	    {
+            catch(SQLException e) 
+            {
                 e.printStackTrace();
             }
             try 
-	    {
+            {
                 c.close();
             } 
-	    catch(SQLException e) 
-	    {
+            catch(SQLException e) 
+            {
                 e.printStackTrace();
             }
         }
