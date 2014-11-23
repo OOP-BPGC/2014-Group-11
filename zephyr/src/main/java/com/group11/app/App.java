@@ -207,6 +207,19 @@ public class App
 			else if(stateVar == 2)
 			{
 				/* Code to update databse.*/ 
+				System.out.println("\u001b[2J\u001b[H") ;
+				sc.nextLine() ; 
+				System.out.print("Name: " ) ; 
+				String name = sc.nextLine() ; 
+				int id ;
+				System.out.print("ID: ") ; 
+				id = sc.nextInt() ; 
+				String path = sc.nextLine() ; 
+				Pass p = new Pass(id, name, " ")  ; 
+				p.putToDatabase(stmt) ; 
+				System.out.println("Written to database") ; 
+				sc.nextLine() ; 
+				sc.nextLine() ; 
 			}
 			else
 			{
