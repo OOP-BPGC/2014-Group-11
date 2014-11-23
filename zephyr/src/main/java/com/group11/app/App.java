@@ -69,7 +69,7 @@ public class App
 				try
 				{
 					System.out.println("\u001b[2J\u001b[H") ; 	
-					System.out.println("Please choose the required option:- \n1)T-Sirts\n2)Passes\n3)Participants\n4)Performances\n5)Competitions\n6)Controls\n7)Back") ; 
+					System.out.println("Please choose the required option:- \n1)T-Sirts\n2)Passes\n3)Participants\n4)Performances\n5)Competitions\n6)Back") ; 
 					opt =  sc.nextInt() ; 
 					if(opt == 3)
 					{
@@ -79,15 +79,11 @@ public class App
 					{
 						tshirtLoop(stmt) ; 
 					}
-					else if (opt == 6)
-					{
-						controlsLoop(stmt) ; 
-					}
 					else if (opt == 5)
 					{
 						competeLoop(stmt) ; 
 					}
-					else if (opt == 7)
+					else if (opt == 6)
 					{
 						stateVar = 1 ; 
 						continue ; 
@@ -217,12 +213,15 @@ public class App
 			if(stateVar == 1)
 			{
 				/* Add code to view the details. */ 
+				System.out.println("\u001b[2J\u001b[H") ;
 				System.out.println("Please select the competition number to view more details about it.") ; 
 				List<Integer> idList = ut.printCompetitions(stmt) ; 
 				int opt = sc.nextInt() ; 
 				if((opt > 0)&&(opt <= idList.size()))
 				{
-					//ut.printCompetitionDetails(opt-1)  ;
+					ut.printCompetitionDetails(stmt, idList.get(opt-1))  ;
+					sc.nextLine() ; 
+					sc.nextLine() ; 
 				}
 
 			}
