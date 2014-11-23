@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.*;
 import java.sql.*;
 
-public class TShirtHandler extends HttpServlet {
+public class PassHandler extends HttpServlet {
     
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if(request.getSession().getAttribute("user-id") != null) {
