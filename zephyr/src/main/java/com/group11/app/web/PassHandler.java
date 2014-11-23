@@ -15,8 +15,16 @@ public class PassHandler extends HttpServlet {
             Student s = new Student(uid, null, null, null);
             int nopass = Pass.getNoPasses();
 
+            int id;
+            String name;
+            
             for(int i=0; i < nopass; i++) {
-                
+                id = i + 1;                
+                String active = request.getParameter("pass" + i + 1);
+                if(active.equals("Yes")) {
+                    Pass p = new Pass(id, null, null);
+                    p.putToDatabase();
+                }
             }
         }
     }

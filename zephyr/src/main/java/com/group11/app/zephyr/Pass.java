@@ -3,7 +3,7 @@ import java.sql.*;
 
 public class Pass implements DatabaseEntry
 {
-	int id ;
+	public int id ;
 	public Performance perf ;
 	public String name ; 
 	public String path ; 
