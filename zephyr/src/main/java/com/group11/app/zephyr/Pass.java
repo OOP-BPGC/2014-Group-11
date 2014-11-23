@@ -14,8 +14,25 @@ public class Pass implements DatabaseEntry
 		name = n ; 
 		path = p ; 
 	}
-	public static String getName()
+	public static String getName( int id)
 	{	
+		try
+		{
+			Class.forName("org.sqlite.JDBC");
+			Connection c = DriverManager.getConnection("jdbc:sqlite:common");
+			Statement stmt = c.createStatement() ; 
+			ResultSet rs = stmt.executeQuery("SELECT * from passes where id="+id) ; 
+			rs.next() ; 
+			return rs.getString("name") ; 
+		}
+		catch(SQLException ex)
+		{
+			ex.printStackTrace() ; 
+		}
+		catch(ClassNotFoundException ex)
+		{
+			ex.printStackTrace() ; 
+		}
 		return " " ; 
 	}
 	public void putToDatabase()
@@ -26,7 +43,7 @@ public class Pass implements DatabaseEntry
 			Class.forName("org.sqlite.JDBC");
 			Connection c = DriverManager.getConnection("jdbc:sqlite:common");
 			Statement stmt = c.createStatement() ; 
-			stmt.executeQuery("INSERT INTO passes values(\" " + name +  "\", " + id + ", \"" + path + "\")") ; 
+			stmt.executeUpdate("INSERT INTO passes values(\" " + name +  "\", " + id + ", \"" + path + "\")") ; 
 		}
 		catch(SQLException ex)
 		{
@@ -45,7 +62,7 @@ public class Pass implements DatabaseEntry
 			Class.forName("org.sqlite.JDBC");
 			Connection c = DriverManager.getConnection("jdbc:sqlite:common");
 			Statement stmt = c.createStatement() ; 
-			ResultSet rs = stmt.executeQuery("SELECT * from passeslist") ; 
+			ResultSet rs = stmt.executeQuery("SELECT * from passes") ; 
 			int count = 0 ; 
 			while(rs.next() == true)
 			{

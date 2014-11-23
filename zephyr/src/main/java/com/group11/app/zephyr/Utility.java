@@ -163,5 +163,41 @@ public class Utility
 			}
 		}
 	}
+	public List<Integer>  printPasses(Statement stmt) throws SQLException 
+	{
+		List<Integer> idList = new ArrayList<>() ; 
+		ResultSet rs = stmt.executeQuery("SELECT * from passes") ; 
+		System.out.println("Passes : ") ; 
+		System.out.format("|********************|**********|\n") ; 
+		System.out.format("|%-20s|%-10s|\n", "NAME", "ID") ; 
+		while(rs.next() == true)	
+		{
+			System.out.format("|********************|**********|\n") ; 
+			System.out.format("|%-20s|%-10d|\n", rs.getString("name") , rs.getInt("id")) ; 
+			idList.add(rs.getInt("id")) ; 
+		}
+		System.out.format("|********************|**********|\n") ; 
+		return idList ; 
+	}
+	public void printPassDetails(Statement stmt, int id) throws SQLException  
+	{
+		ResultSet rs = stmt.executeQuery("SELECT * from passeslist where passid=" +id) ; 
+		List<Integer> idList = new ArrayList<>() ; 
+		while(rs.next() == true)
+		{
+			idList.add(rs.getInt("pid")) ; 
+			System.out.println(rs.getInt("pid")) ; 
+		}
+		for(int i=0; i<idList.size(); i++)
+		{
+			rs=stmt.executeQuery("SELECT * from person where id="+idList.get(i)) ; 
+			while(rs.next() == true)
+			{
+				System.out.format("%d) %-20s%-20s%-4s%-5d", i, rs.getString("fname"), rs.getString("lname"), rs.getString("hostel"), rs.getInt("id")) ; 
+				i++ ; 
+				System.out.println() ; 
+			}
+		}
+	}
 
 }

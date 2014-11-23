@@ -83,6 +83,10 @@ public class App
 					{
 						competeLoop(stmt) ; 
 					}
+					else if (opt == 2)
+					{
+						passLoop(stmt) ; 
+					}
 					else if (opt == 6)
 					{
 						stateVar = 1 ; 
@@ -178,7 +182,7 @@ public class App
 			}
 		}
 	}
-	public static void controlsLoop(Statement stmt)
+	public static void passLoop(Statement stmt) throws SQLException 
 	{
 		while(true)
 		{
@@ -188,6 +192,16 @@ public class App
 			int stateVar = sc.nextInt() ;
 			if(stateVar == 1)
 			{
+				System.out.println("\u001b[2J\u001b[H") ;
+				System.out.println("Please select the pass no to view more details about it.") ; 
+				List<Integer> idList = ut.printPasses(stmt) ; 
+				int opt = sc.nextInt() ; 
+				if((opt > 0)&&(opt <= idList.size()))  
+				{
+					ut.printPassDetails(stmt, idList.get(opt-1)) ; 
+				}
+				sc.nextLine() ; 
+				sc.nextLine() ; 
 				/* Add code to view the details. */ 
 			}
 			else if(stateVar == 2)
@@ -227,7 +241,25 @@ public class App
 			}
 			else if(stateVar == 2)
 			{
-				/* Code to update databse.*/ 
+				System.out.println("\u001b[2J\u001b[H") ;
+				System.out.println("Please add the following details..") ; 
+				sc.nextLine() ; 
+				System.out.print("Name: " ) ; 
+				String name = sc.nextLine() ; 
+				System.out.print("Venue: "); 
+				String ven = sc.nextLine() ; 
+				System.out.print("Day: ") ; 
+				int day  = sc.nextInt() ; 
+				System.out.print("Month: ") ; 
+				int mon = sc.nextInt() ; 
+				System.out.print("Year: " ) ; 
+				int yea = sc.nextInt() ; 
+				System.out.print("ID: " ) ; 
+				int id = sc.nextInt() ; 
+				Competition comp = new Competition(name, ven, yea, mon, day, id, -1) ; 
+				comp.putToDatabase(stmt, true) ; 
+				sc.nextLine() ; 
+				sc.nextLine() ; 
 			}
 			else
 			{
