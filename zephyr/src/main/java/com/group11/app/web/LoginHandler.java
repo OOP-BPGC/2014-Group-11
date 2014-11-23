@@ -62,6 +62,7 @@ public class LoginHandler extends HttpServlet {
     private boolean checkHR(Student s) {
         boolean check = false;
         Connection c = null;
+        ResultSet rs = null;
         Statement stmt = null;
         
         try {
@@ -70,7 +71,7 @@ public class LoginHandler extends HttpServlet {
             stmt = c.createStatement() ;
 
             
-            ResultSet rs = stmt.executeQuery("SELECT type from person WHERE id = " + s.getID() );
+            rs = stmt.executeQuery("SELECT type from person WHERE id = " + s.getID() );
             if(rs.getInt("type") == 1) {
                 check = true;
             }
@@ -78,12 +79,15 @@ public class LoginHandler extends HttpServlet {
                 check = false;
             }
 
+            rs.close();
+
         } catch(SQLException e) {
             e.printStackTrace();            
             
         } finally {
 
             try {
+                rs.close();
                 stmt.close();
             } catch(SQLException e) {
                 e.printStackTrace();
@@ -92,6 +96,7 @@ public class LoginHandler extends HttpServlet {
 
             try {
                 c.close();
+                
             } catch(SQLException e) {
                 e.printStackTrace();
             }
