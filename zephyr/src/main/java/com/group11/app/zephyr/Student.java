@@ -139,9 +139,9 @@ public class Student implements DatabaseEntry
             e.printStackTrace();            
             
         } 
-	catch(ClassNotFoundException ex)
+	catch(ClassNotFoundException e)
 	{
-		ex.printStackTrace() ;
+		e.printStackTrace() ;
 	}
 	finally 
 	{
