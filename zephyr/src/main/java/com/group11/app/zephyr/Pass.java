@@ -54,6 +54,18 @@ public class Pass implements DatabaseEntry
 			ex.printStackTrace() ; 
 		}
 	}
+	public void putToDatabase(Statement stmt)
+	{
+
+		try
+		{
+			stmt.executeUpdate("INSERT INTO passes values(\" " + name +  "\", " + id + ", \"" + path + "\")") ; 
+		}
+		catch(SQLException ex)
+		{
+			ex.printStackTrace() ; 
+		}
+	}
 	public static int getNoPasses()
 	{
 

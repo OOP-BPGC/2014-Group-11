@@ -69,7 +69,7 @@ public class App
 				try
 				{
 					System.out.println("\u001b[2J\u001b[H") ; 	
-					System.out.println("Please choose the required option:- \n1)T-Sirts\n2)Passes\n3)Participants\n4)Performances\n5)Competitions\n6)Back") ; 
+					System.out.println("Please choose the required option:- \n1)T-Shirts\n2)Passes\n3)Participants\n4)Competitions\n5)Back") ; 
 					opt =  sc.nextInt() ; 
 					if(opt == 3)
 					{
@@ -79,7 +79,7 @@ public class App
 					{
 						tshirtLoop(stmt) ; 
 					}
-					else if (opt == 5)
+					else if (opt == 4)
 					{
 						competeLoop(stmt) ; 
 					}
@@ -87,7 +87,7 @@ public class App
 					{
 						passLoop(stmt) ; 
 					}
-					else if (opt == 6)
+					else if (opt == 5)
 					{
 						stateVar = 1 ; 
 						continue ; 
@@ -207,6 +207,19 @@ public class App
 			else if(stateVar == 2)
 			{
 				/* Code to update databse.*/ 
+				System.out.println("\u001b[2J\u001b[H") ;
+				sc.nextLine() ; 
+				System.out.print("Name: " ) ; 
+				String name = sc.nextLine() ; 
+				int id ;
+				System.out.print("ID: ") ; 
+				id = sc.nextInt() ; 
+				String path = sc.nextLine() ; 
+				Pass p = new Pass(id, name, " ")  ; 
+				p.putToDatabase(stmt) ; 
+				System.out.println("Written to database") ; 
+				sc.nextLine() ; 
+				sc.nextLine() ; 
 			}
 			else
 			{

@@ -103,16 +103,18 @@ public class TShirt implements DatabaseEntry
     public static int getNoTShirts() {
         Connection c = null;
         Statement stmt = null;
+        ResultSet rs = null;
         int norows = 0;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
             stmt = c.createStatement() ;
 
-            ResultSet rs = stmt.executeQuery("SELECT count(*) as rowcount FROM tshirt;");
+            rs = stmt.executeQuery("SELECT count(*) as rowcount FROM tshirt;");
             norows = rs.getInt("rowcount");
 
         } catch(SQLException e) {
+            System.out.println("boo");
             e.printStackTrace();            
             
         } catch(ClassNotFoundException e) {
@@ -120,8 +122,10 @@ public class TShirt implements DatabaseEntry
             
         } finally {
             try {
+                rs.close();
                 stmt.close();
             } catch(SQLException e) {
+                System.out.println("boo");
                 e.printStackTrace();
             }
             try {
@@ -138,16 +142,18 @@ public class TShirt implements DatabaseEntry
     public static String getName(int id) {
         Connection c = null;
         Statement stmt = null;
+        ResultSet rs = null;
         String name = null;
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
             stmt = c.createStatement() ;
 
-            ResultSet rs = stmt.executeQuery("SELECT name FROM tshirt WHERE tid = " + id +";" );
+            rs = stmt.executeQuery("SELECT name FROM tshirt WHERE tid = " + id +";" );
             name = rs.getString("name");
 
         } catch(SQLException e) {
+            System.out.println("boo");
             e.printStackTrace();            
             
         } catch(ClassNotFoundException e) {
@@ -155,6 +161,7 @@ public class TShirt implements DatabaseEntry
             
         } finally {
             try {
+                rs.close();
                 stmt.close();
             } catch(SQLException e) {
                 e.printStackTrace();
