@@ -1,6 +1,3 @@
-<%@ page import="java.util.*" %>
-<%@ page import="com.group11.app.zephyr.*" %>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,15 +29,16 @@
                 <p>Zephyr '15 Home-page</p>
             </a>
 
-            <a href="comp.jsp" id="info">Competitions                                                       <!-- need to set action link-->
+            <a href="comp.jsp" id="info">Competitions                                              
                 <p>View the details of the competitions</p>
             </a>
 
             <a href="score.jsp" id="info">Score-board                                                        <!-- need to set action link-->
                 <p>View the score-board</p>
             </a>
+            
 
-            <a href="logout" id="info">Log-out                                                           <!-- need to set action link-->
+            <a href="" id="info">Log-out                                                           <!-- need to set action link-->
                 <p>If you're done and dusted</p>
             </a>
 
@@ -59,28 +57,21 @@
                     <div id="hrule" style="height: 20px"></div>
     
                     <div id="sidebar">
-                        <a href="student.jsp">Activities:</a>                      
-                        <a href="tshirt.jsp" id="info">1. Buy T-SHIRT</a>      
-                        <a href="passes.jsp" id="info">2. Buy Passes</a>
+                        <a href="student.html">Activities:</a>                      
+                        <a href="tshirt.jsp" id="info">1. Buy Tickets</a>                                     
+                        <a href="" id="info">2. Buy Passes</a>                                      <!-- need to set action link-->
                         <a href="" id="info">3. Register for an Event</a>                           <!-- need to set action link-->
                     </div>
 
                     <div id="hrule" style="height: 0px" ></div>
-
-                    <h2 style="margin-left: 320px;">WELCOME!</h2>
-                    <h4 style="margin-left: 320px;"></h4>
-                    <h5 style="margin-left: 320px;"></h5>
-                    <h5 style="margin-left: 320px;"></br></h5>
-                    <h5 style="margin-left: 320px;"></h5>
-                    <h5 style="margin-left: 320px;"></h5>
     
                     <div id="hrule" style="height: 60px"></div>
 
-                    <h2 style="margin-left: 320px;"></h2>
-                    <%
-                    //ArrayList<Competition> comp = 
-
-                    %>
+                    <h1 style="margin-left: 360px;">THANK YOU!</h1>
+                    </br>
+                    <h2 style="margin-left: 360px;">Your response has been recorded</h2>
+                    
+                    
 
                     <div id="hrule" style="height: 60px"></div>
                     <div id="hrule" style="height: 60px"></div>         

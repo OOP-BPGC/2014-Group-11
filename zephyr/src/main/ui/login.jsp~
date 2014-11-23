@@ -38,7 +38,7 @@
                 <p>View the score-board</p>
             </a>
             
-            <a href="logout" id="info">Logout                   
+            <a href="login.jsp" id="info">Login                    
                 <p>Log into your account</p>
             </a>
             <div id="hrule"></div>

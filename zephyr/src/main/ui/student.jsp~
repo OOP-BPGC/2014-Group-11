@@ -59,7 +59,7 @@
                     <div id="hrule" style="height: 20px"></div>
     
                     <div id="sidebar">
-                        <a href="student.jsp">Activities:</a>                      
+                        <a href="student.html">Activities:</a>                      
                         <a href="tshirt.jsp" id="info">1. Buy T-SHIRT</a>      
                         <a href="passes.jsp" id="info">2. Buy Passes</a>
                         <a href="" id="info">3. Register for an Event</a>                           <!-- need to set action link-->

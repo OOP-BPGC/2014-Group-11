@@ -66,18 +66,18 @@
 
                     <div id="hrule" style="height: 0px" ></div>
 
-                    <h2 style="margin-left: 320px;">Notification Board:</h2>
-                    <h4 style="margin-left: 320px;">/*does HR have notifications?*/</h4>
-                    <h5 style="margin-left: 320px;">zzzzz</h5>
-                    <h5 style="margin-left: 320px;">zzzzzz</h5>
-                    <h5 style="margin-left: 320px;">zzzzz</h5>
-                    <h5 style="margin-left: 320px;">zzzzzzz</h5>
+                    <h2 style="margin-left: 320px;">Welcome HR</h2>
+                    <h4 style="margin-left: 320px;"></h4>
+                    <h5 style="margin-left: 320px;"></h5>
+                    <h5 style="margin-left: 320px;"></br></h5>
+                    <h5 style="margin-left: 320px;"></br></h5>
+                    <h5 style="margin-left: 320px;"></br></h5>
     
                     <div id="hrule" style="height: 60px"></div>
 
-                    <h2 style="margin-left: 320px;">WHAT SHOULD BE HERE????</h2>
-                    <h4 style="margin-left: 320px;">whatt???????????</h4>
-                    <h5 style="margin-left: 320px;">?????????????????????</h5>
+                    <h2 style="margin-left: 320px;"></br></h2>
+                    <h4 style="margin-left: 320px;"></br></h4>
+                    <h5 style="margin-left: 320px;"></br></h5>
 
                     <div id="hrule" style="height: 60px"></div>
                     <div id="hrule" style="height: 60px"></div>         

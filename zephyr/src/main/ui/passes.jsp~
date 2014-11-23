@@ -1,6 +1,7 @@
-<%@ page import="java.util.*" %>
-<%@ page import="com.group11.app.zephyr.*" %>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="org.sqlite.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="res/css/main.css">
         <link rel="stylesheet" type="text/css" href="res/css/header.css">
         <link rel="stylesheet" type="text/css" href="res/css/footer.css">
-        <title>Welcome Student</title>
+        <title>BUY TSHIRT</title>
     </head>
     
     <body>
@@ -32,15 +33,14 @@
                 <p>Zephyr '15 Home-page</p>
             </a>
 
-            <a href="comp.jsp" id="info">Competitions                                                       <!-- need to set action link-->
+            <a href="" id="info">Competitions                                                       <!-- need to set action link-->
                 <p>View the details of the competitions</p>
             </a>
 
-            <a href="score.jsp" id="info">Score-board                                                        <!-- need to set action link-->
+            <a href="score.jsp" id="info">Score-board                                                <!-- need to set action link-->
                 <p>View the score-board</p>
             </a>
-
-            <a href="logout" id="info">Log-out                                                           <!-- need to set action link-->
+            <a href="logout" id="info">Log-out                                                       <!-- need to set action link-->
                 <p>If you're done and dusted</p>
             </a>
 
@@ -58,30 +58,45 @@
                     <div id="hrule" style="height: 50px"></div>
                     <div id="hrule" style="height: 20px"></div>
     
-                    <div id="sidebar">
-                        <a href="student.jsp">Activities:</a>                      
-                        <a href="tshirt.jsp" id="info">1. Buy T-SHIRT</a>      
-                        <a href="passes.jsp" id="info">2. Buy Passes</a>
-                        <a href="" id="info">3. Register for an Event</a>                           <!-- need to set action link-->
-                    </div>
 
                     <div id="hrule" style="height: 0px" ></div>
 
-                    <h2 style="margin-left: 320px;">WELCOME!</h2>
-                    <h4 style="margin-left: 320px;"></h4>
-                    <h5 style="margin-left: 320px;"></h5>
-                    <h5 style="margin-left: 320px;"></br></h5>
-                    <h5 style="margin-left: 320px;"></h5>
-                    <h5 style="margin-left: 320px;"></h5>
-    
-                    <div id="hrule" style="height: 60px"></div>
-
-                    <h2 style="margin-left: 320px;"></h2>
+                    <!--show tshirt-->
+					<div id="hrule" style="height: 60px"></div>
+					
+					
+					<div style="margin-left: 360px;">
+					
+					
+					<form action="" method="post" > <h1>BUY PASSES</h1><br/><br/>          
+				
                     <%
-                    //ArrayList<Competition> comp = 
-
+                        Class.forName("org.sqlite.JDBC");
+                        Connection conn = DriverManager.getConnection("jdbc:sqlite:../common");     //change the link
+                        Statement stat = conn.createStatement();
+                        ResultSet rs = stat.executeQuery("select * from passes;");  //passid picpath passname
+                        int i = 1;
+                        while (rs.next()) {
+                            out.println("<h2>" + rs.getString("passname") + "</h2>");
+                            out.println("<img src=" + rs.getString("picpath") + " width=400px height=300px>");
+ 
+                            out.println("<div id=\"hrule\" style=\"height: 0px\" ></div>");
+                            
+                            out.println("GET THE PASS: <input type=\"checkbox\" name=pass" + i + " value=\"Yes\"> <br/><br/>");
+                            
+							out.println("<div id=\"hrule\" style=\"height: 0px\" ></div>");
+							i++;
+                        }       
+                        rs.close();
+                        conn.close();
                     %>
-
+                    
+                    	<input type="submit" value="SUBMIT">
+    				</form>
+    				
+    				</div>
+    				
+                    <div id="hrule" style="height: 60px"></div>
                     <div id="hrule" style="height: 60px"></div>
                     <div id="hrule" style="height: 60px"></div>         
                 </div>
@@ -103,3 +118,4 @@
         
     </body>
 </html>
+

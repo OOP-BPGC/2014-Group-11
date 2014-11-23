@@ -1,4 +1,4 @@
-<%@ page import="java.util.*" %>
+<!DOCTYPE html>
 <html>
     <head>
 
@@ -24,21 +24,22 @@
         
         <div id="header" class="unselect">
 
-                    <div id="header" class="unselect">
-
             <a href="index.html" id="info">Home
                 <p>Zephyr '15 Home-page</p>
             </a>
 
-            <a href="comp.jsp" id="info">Competitions                          
+            <a href="" id="info">competitions                                                                   <!-- need to set action link-->
                 <p>View the details of the competitions</p>
             </a>
 
-            <a href="score.js[" id="info">Score-board  
+            <a href="" id="info">Score-board                                                                    <!-- need to set action link-->
                 <p>View the score-board</p>
             </a>
             
-            <a href="logout" id="info">Logout                   
+            <a href="" id="info">Schedule                                                                       <!-- need to set action link-->
+                <p>View the Time and Venue of Zephyr'15</p>
+            </a>
+            <a href="login.html" id="info">Login
                 <p>Log into your account</p>
             </a>
             <div id="hrule"></div>
@@ -48,29 +49,21 @@
         
         <div id="body" class="unselect">
             
-
+            <div id="content">
                 
             <link rel="stylesheet" type="text/css" href="res/css/home.css">
                 <div style="float: left; margin-left: 100px; margin-right : 100px; margin-top : 50px;">
-                    <form  method="post" > <h3>LOGIN</h3><br/><br/>                        <!-- need to set action link-->
+                    <form action="" method="post" > <h3>LOGIN AS STUDENT </h3><br/><br/>                
                     Username: <input type="text" name="username" placeholder="Username"> <br/><br/>
                     Password: <input type="password" name="password" placeholder="Password"> <br/><br/>
-                    <%
-                    String check = (String) request.getAttribute("check");
-                    if(check != null) {
-                    if(check.equals("false")) {
-                      out.println("<h5 style=\"color:red\">   Invalid Credentials </h5>");
-                    }
-                    }
-                    %>
-                    <input type="submit" value="Login">
+                    <input type="submit" value="Login as Student">
                     </form>
-
+                </div>
             </div>
             
         </div>
         
-        <div id="footer" class="unselect">
+        <div id="footer" class="unselect">		
             <a id="info" href="http://www.bits-pilani.ac.in/Goa/" target="_blank">BPGC
                 <p>Go to BITS Pilani,Goa Homepage</p>
             </a>

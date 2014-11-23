@@ -29,23 +29,18 @@
         
         <div id="header" class="unselect">
 
-            <a href="student.html" id="info">Home
+            <a href="student.jsp" id="info">Home
                 <p>Zephyr '15 Home-page</p>
             </a>
 
-            <a href="" id="info">Competitions                                                       <!-- need to set action link-->
+            <a href="comp.jsp" id="info">Competitions                                                       <!-- need to set action link-->
                 <p>View the details of the competitions</p>
             </a>
 
-            <a href="" id="info">Score-board                                                        <!-- need to set action link-->
+            <a href="score.jsp" id="info">Score-board                                                <!-- need to set action link-->
                 <p>View the score-board</p>
             </a>
-            
-            <a href="" id="info">Schedule                                                           <!-- need to set action link-->
-                <p>View the Time and Venue of Zephyr'15</p>
-            </a>
-
-            <a href="" id="info">Log-out                                                           <!-- need to set action link-->
+            <a href="logout" id="info">Log-out                                                       <!-- need to set action link-->
                 <p>If you're done and dusted</p>
             </a>
 

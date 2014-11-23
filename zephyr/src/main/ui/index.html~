@@ -35,7 +35,7 @@
             <a href="score.jsp" id="info">Score-board                                                            <!-- need to set action link-->
                 <p>View the score-board</p>
             </a>
-            <a href="login.jsp" id="info">Login                    
+            <a href="login.html" id="info">Login                    
                 <p>Log into your account</p>
             </a>
             <div id="hrule"></div>
