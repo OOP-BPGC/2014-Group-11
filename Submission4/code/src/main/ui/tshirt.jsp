@@ -1,0 +1,126 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="org.sqlite.*" %>
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <link rel="stylesheet" type="text/css" href="res/css/main.css">
+        <link rel="stylesheet" type="text/css" href="res/css/header.css">
+        <link rel="stylesheet" type="text/css" href="res/css/footer.css">
+        <title>BUY TSHIRT</title>
+    </head>
+    
+    <body>
+        
+        <a name="top"></a>
+        
+        <div id="topp">
+            <div>
+                <img id="logo" src="res/images/zephyr.jpg">
+                <div>
+                    <p style="font-size:60px">Zephyr'14</p>
+                    <p style="font-size:22px">Inter Hostel Fest</p>
+                </div>
+                <div id="hrule"></div>
+            </div>
+        </div>
+        
+        <div id="header" class="unselect">
+
+            <a href="student.html" id="info">Home
+                <p>Zephyr '15 Home-page</p>
+            </a>
+
+            <a href="" id="info">Competitions                                                       <!-- need to set action link-->
+                <p>View the details of the competitions</p>
+            </a>
+
+            <a href="" id="info">Score-board                                                        <!-- need to set action link-->
+                <p>View the score-board</p>
+            </a>
+            
+            <a href="" id="info">Schedule                                                           <!-- need to set action link-->
+                <p>View the Time and Venue of Zephyr'15</p>
+            </a>
+
+            <a href="" id="info">Log-out                                                           <!-- need to set action link-->
+                <p>If you're done and dusted</p>
+            </a>
+
+            <div id="hrule"></div>
+        </div>
+        
+        
+        
+        <div id="body" class="unselect">
+            
+            <div id="content">
+
+                <div id="competitions">
+    
+                    <div id="hrule" style="height: 50px"></div>
+                    <div id="hrule" style="height: 20px"></div>
+    
+
+                    <div id="hrule" style="height: 0px" ></div>
+
+                    <!--show tshirt-->
+					<div id="hrule" style="height: 60px"></div>
+					
+					
+					<div style="margin-left: 360px;">
+					
+					
+					<form action="" method="post" > <h1>BUY TSHIRTS</h1><br/><br/>          
+				
+                    <%
+                        Class.forName("org.sqlite.JDBC");
+                        Connection conn = DriverManager.getConnection("jdbc:sqlite:../common");     //change the link
+                        Statement stat = conn.createStatement();
+                        ResultSet rs = stat.executeQuery("select * from tshirt;");  //name path tid
+                        int i = 1;
+                        while (rs.next()) {
+                            out.println("<h2>" + rs.getString("name") + "</h2>");
+                            out.println("<img src=" + rs.getString("path") + " width=300px height=300px>");
+                            //out.println("" + rs.getInt("tid") + "");
+                            out.println("<div id=\"hrule\" style=\"height: 0px\" ></div>");
+                            out.println("S: <input type=\"text\" name=shirt" + i + "s> <br/><br/>");
+                            out.println("M: <input type=\"text\" name=shirt" + i + "m> <br/><br/>");
+                            out.println("L: <input type=\"text\" name=shirt" + i + "l> <br/><br/>");
+							out.println("XL: <input type=\"text\" name=shirt" + i + "xl> <br/><br/>");
+							out.println("<div id=\"hrule\" style=\"height: 0px\" ></div>");
+							i++;
+                        }       
+                        rs.close();
+                        conn.close();
+                    %>
+                    
+                    	<input type="submit" value="SUBMIT">
+    				</form>
+    				
+    				</div>
+    				
+                    <div id="hrule" style="height: 60px"></div>
+                    <div id="hrule" style="height: 60px"></div>
+                    <div id="hrule" style="height: 60px"></div>         
+                </div>
+            </div>
+
+         <div id="footer" class="unselect">
+            <a id="info" href="http://www.bits-pilani.ac.in/Goa/" target="_blank">BPGC
+                <p>Go to BITS Pilani,Goa Homepage</p>
+            </a>
+
+            <a href="developers.html" id="info">Developers                                                            
+                <p>Get to know the people involved in the development of this website</p>
+            </a>
+
+            <div id="hrule"></div>    
+        </div>
+        
+        <a name="bottom"></a>
+        
+    </body>
+</html>

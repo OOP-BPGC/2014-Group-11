@@ -1,0 +1,13 @@
+Positives about our group :- 
+
+1) Good team work. 
+2) People having good knowledge of their respective domans (coding, uml etc) . 
+
+Negatives about our group :- 
+
+1) As such there were no negatives of our group, but we could have started the work a little bit early. 
+
+What would we do differently next time ? 
+
+1) We will plan the UML diagram and use cases more attentively. 
+2) Try to be a bit more organized while coding the application. 
