@@ -11,7 +11,7 @@ class HR extends Student
         
 		try
 		{
-            Class.forNmae("org.sqlite.JDBC");
+            Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:common");
             stmt = c.createStatement() ; 
             for(int i=0; i<list.size(); i++)
@@ -24,7 +24,7 @@ class HR extends Student
 			ex.printStackTrace() ; 
 		}
         catch(ClassNotFoundException ex) {
-            ex.printStackTace();
+            ex.printStackTrace();
         } finally {
             try {
                 c.close();
