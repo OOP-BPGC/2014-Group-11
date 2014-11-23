@@ -42,33 +42,73 @@ public class Competition extends Event implements DatabaseEntry
 	public void putToDatabase() 
 	{
 
-		String sql = "INSERT INTO Competition (name, venue, year, month, date, id, rank) VALUES ('" + name + "','" + venue + "'," + year + "," + month + "," + date + "," + id +"," + rank + ");" ; 			
-        Connection c = null;
-        Statement stmt = null;
-        
-        try {
-            Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
-            stmt = c.createStatement() ;
-            stmt.executeUpdate(sql);
-            
-        } catch(SQLException e) {
-            e.printStackTrace();            
-            
-        } catch(ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                stmt.close();
-            } catch(SQLException e) {
-                e.printStackTrace();
-            }
-            try {
-                c.close();
-            } catch(SQLException e) {
-                e.printStackTrace();
-            }
-        }
+		String sql = "INSERT INTO Competition (name, venue, year, month, date, id) VALUES ('" + name + "','" + venue + "'," + year + "," + month + "," + date + "," + id + ");" ; 			
+		Connection c = null;
+		Statement stmt = null;
+
+		try 
+		{
+			Class.forName("org.sqlite.JDBC");
+			c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
+			stmt = c.createStatement() ;
+			stmt.executeUpdate(sql);
+
+		} 
+		catch(SQLException e)
+		{
+			e.printStackTrace();            
+
+		} 
+		catch(ClassNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		finally 
+		{
+			try 
+			{
+				stmt.close();
+			} 
+			catch(SQLException e) 
+			{
+				e.printStackTrace();
+			}
+			try 
+			{
+				c.close();
+			} 
+			catch(SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		}
+
+	}
+	public void putToDatabase( Statement stmt, boolean val) 
+	{
+
+		String sql = "INSERT INTO competition  VALUES(\"" + name + "\",\"" + venue + "\"," + year + "," + month + "," + date + "," + id + ");" ; 			
+		try 
+		{
+			stmt.executeUpdate(sql);
+
+		} 
+		catch(SQLException e)
+		{
+			e.printStackTrace();            
+
+		} 
+		finally 
+		{
+			try 
+			{
+				stmt.close();
+			} 
+			catch(SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		}
 
 	}
 }
