@@ -12,11 +12,14 @@ public class Login
 
 	public boolean checkCredentials(boolean val) 
 	{
+        Connection c = null;
+        Statement stmt = null;
+        
 		try
-		{
-			Class.forName("org.sqlite.JDBC");
-			Connection c = DriverManager.getConnection("jdbc:sqlite:common");
-			Statement stmt = c.createStatement() ; 
+		{            
+           	Class.forName("org.sqlite.JDBC");
+		    c = DriverManager.getConnection("jdbc:sqlite:common");
+		    stmt = c.createStatement() ; 
 			Utility ut = new Utility() ;
 			return ut.loginCorrect(s.id, s.password, stmt)  ;
 		}
@@ -26,18 +29,31 @@ public class Login
 			return false ; 
 		}
 
-		catch(ClassNotFoundException ex) {
-			ex.printStackTrace();
+        		catch(ClassNotFoundException ex) {
+        ex.printStackTrace();
 			return false;
-		}
+            		}
+
+        finally {
+            try {
+                c.close();
+                stmt.close();
+            }
+            catch(SQLException e) {
+                e.printStackTrace();
+            }
+        }
 	}
 	public boolean checkCredentials() 
 	{
+        Connection c = null;
+        Statement stmt = null;
+        
 		try
 		{
 			Class.forName("org.sqlite.JDBC");
-			Connection c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
-			Statement stmt = c.createStatement() ; 
+		    c = DriverManager.getConnection("jdbc:sqlite:/var/lib/tomcat7/webapps/zephyr/data/common");
+			stmt = c.createStatement() ; 
 			Utility ut = new Utility() ;
 			return ut.loginCorrect(s.id, s.password, stmt)  ;
 		}
@@ -51,5 +67,15 @@ public class Login
 			ex.printStackTrace();
 			return false;
 		}
+
+        finally {
+            try {         
+                stmt.close();
+                c.close();
+                
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+        }
 	}
 }
