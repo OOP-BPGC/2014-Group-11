@@ -11,7 +11,7 @@ class HR extends Student
         
 		try
 		{
-            Class.forNmae("org.jdbc.sqlite");
+            Class.forNmae("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:common");
             stmt = c.createStatement() ; 
             for(int i=0; i<list.size(); i++)
