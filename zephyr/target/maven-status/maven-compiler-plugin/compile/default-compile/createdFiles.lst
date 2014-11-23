@@ -1,15 +1,15 @@
 com/group11/app/zephyr/Student.class
+com/group11/app/zephyr/Tuple.class
 com/group11/app/zephyr/Register.class
 com/group11/app/zephyr/Utility.class
 com/group11/app/App.class
-com/group11/app/web/LogoutHandler.class
 com/group11/app/zephyr/Competition.class
 com/group11/app/zephyr/TShirt.class
 com/group11/app/zephyr/Performance.class
 com/group11/app/zephyr/HR.class
+com/group11/app/zephyr/RankList.class
 com/group11/app/zephyr/DatabaseEntry.class
 com/group11/app/zephyr/TShirtList.class
 com/group11/app/zephyr/Event.class
 com/group11/app/zephyr/Pass.class
-com/group11/app/web/LoginHandler.class
 com/group11/app/zephyr/Login.class
