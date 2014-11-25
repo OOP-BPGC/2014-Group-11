@@ -6,10 +6,10 @@ Name		   Student ID		Roles		     Role-based		Role            Overall contributio
 ---------------------------------------------------------------------------------------------------------------------------
 Pratik Singhal    2013A7PS019G          Code development     Backend             100%           20%  
 ---------------------------------------------------------------------------------------------------------------------------
-Srinath R         2012B5A7560G          Code Development     Java servelet       50%            15% 
+Srinath R         2012B5A7560G          Code Development     Java Servlets       100%           17.5% 
 ---------------------------------------------------------------------------------------------------------------------------
 Anurag Rai        2013A7PS693G          Code development, 
-                                        Unit testing         Java servelet,CSS   60%            20% 
+                                        Unit testing         JSP,CSS             100%           17.5% 
 ----------------------------------------------------------------------------------------------------------------------------
 Deepika Ghodki    2012A8PS405G          Project Requirements,                    60%            20% 
                                         Class diagrams
